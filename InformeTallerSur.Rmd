@@ -1,0 +1,82 @@
+---
+title: "Evaluacion del Stock de Anchoveta del Sur del Perú y Norte de Chile 2017"
+output: pdf_document
+---
+
+La siguiente evaluación de stock de Anchoveta del Sur del Perú y Norte de Chile fue actualizada hasta diciembre del 2017 y realizada por los integrantes del Instituto del Mar del Perú (IMARPE) y el Instituto de Fomento Pesquero (IFOP) participantes en el XV Taller de Evaluación Conjunta del Stock de Anchoveta del Sur de Perú y Norte de Chile. Este informe presenta las tres hipótesis de stock trabajada durante el taller, las cuales difieren principalmente en los parámetros de crecimiento individual y el número de desoves y reclutamientos al año. 
+
+## Stock
+
+Esta evaluación se enfoca en el stock de Anchoveta del Sur del Perú y Norte de Chile (SPNC), el cual ocupa la zona que comprende desde ....
+
+Información breve sobre el stock con referencias bibliograficas.
+
+## Capturas
+
+La evaluación incluye las capturas industriales de Perú y Chile ...
+
+## Datos y Evaluación
+
+Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). La selectividad se modeló separadamente para ambas flotas utilizando una curva logística. 
+
+Se emplearon además cinco índices de abundancia provenientes de cruceros científicos: 
+
+- Crucero de Evaluación de Recursos Pelágicos (Perú)
+- Crucero de Biomasa Desovante (Chile)
+- Otros
+
+La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
+
+.. mas..
+
+
+\begin{table}
+\centering
+\caption{Datos empleados en los modelos de evaluación del stock de Anchoveta SPNC.}
+\label{table-paramvalues}
+\begin{tabular}{ p{4cm} p{4cm} p{4cm} }
+\hline \\ [-1.5ex]
+Datos & Periodo \\ [1ex]
+\hline \\ [-1.5ex]
+Capturas Perú & 1984-2017  \\ [1ex]
+Capturas Chile & 1984-2017  \\ [1ex]
+otros & ...  \\ [1ex]
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}
+\centering
+\caption{Parámetros para el modelo de evaluación del stock de Anchoveta SPNC.}
+\label{table-paramvalues}
+\begin{tabular}{ p{3cm} p{3cm} p{3cm} p{3cm} p{3cm} }
+\hline \\ [-1.5ex]
+Parámetro & Fase & Valor inicial & Valor Final & Desv estándar \\ [1ex]
+\hline \\ [-1.5ex]
+NatM & -3 & 0.8 & 0.8 & 0.1  \\ [1ex]
+otros & ... & .. &  .. & ...  \\ [1ex]
+\hline
+\end{tabular}
+\end{table}
+
+
+
+## Biomasa desovante y reclutamiento
+
+El reclutamiento fue usando la relación stock-reclutamiento de Beverton-Holt con un sigma R = 0.75. El stepness fue estimado .... (mas detalles sobre las salidas de ssb y reclutamiento)
+
+Anexar figuras time series de salidas de ssb y reclutas y algunas tablas
+
+## Biomasa del stock
+
+Estado del stock, principalmente para el ultimo año....
+
+Anexas figuras time series de total biomass
+
+## Problemas no resuelvos y principales incertidumbres
+
+Podemos mencionar lo del crecimiento individual, resolucion temporal etc...
+
+
+
