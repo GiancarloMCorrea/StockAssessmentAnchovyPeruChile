@@ -72,7 +72,7 @@ Anexar figuras time series de salidas de ssb y reclutas y algunas tablas
 
 Estado del stock, principalmente para el ultimo año....
 
-Anexas figuras time series de total biomass
+Anexas figuras time series de total biomass..
 
 ## Problemas no resuelvos y principales incertidumbres
 
