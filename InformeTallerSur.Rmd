@@ -1,13 +1,14 @@
 ---
-title: "Evaluacion del Stock de Anchoveta del Sur del PerÃº y Norte de Chile 2017"
+title: " XV TALLER IMARPE-IFOP SOBRE EVALUACIÓN CONJUNTA DEL STOCK DE ANCHOVETA DEL SUR DE PERU Y NORTE DE CHILE"
 output:
   word_document: default
   pdf_document: default
 ---
 
+## Introducción
+
 La siguiente evaluación de stock de Anchoveta del Sur del Perú y Norte de Chile fue actualizada hasta diciembre del 2017 y realizada por los integrantes del Instituto del Mar del Perú (IMARPE) y el Instituto de Fomento Pesquero (IFOP) participantes en el XV Taller de Evaluación Conjunta del Stock de Anchoveta del Sur de Perú y Norte de Chile. Este informe presenta las tres hipótesis de stock trabajada durante el taller, las cuales difieren principalmente en los parámetros de crecimiento individual y el número de desoves y reclutamientos al año. 
 
-hola
 
 ## Stock
 
