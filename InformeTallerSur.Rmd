@@ -61,6 +61,16 @@ otros & ... & .. &  .. & ...  \\ [1ex]
 \end{table}
 
 
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+library(r4ss)
+source("getSummaryOne_fun.R")
+```
+
+
+```{r fig.cap = "Figuras resumen del modelo de evaluación B.", echo = FALSE, message = FALSE}
+getSummaryOne(pathmod = "models", modelName = "modB_0_2")
+```
+
 
 ## Biomasa desovante y reclutamiento
 
