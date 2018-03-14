@@ -1,8 +1,9 @@
 ---
-title: " XV TALLER IMARPE-IFOP SOBRE EVALUACIÓN CONJUNTA DEL STOCK DE ANCHOVETA DEL SUR DE PERU Y NORTE DE CHILE"
+title: ' XV TALLER IMARPE-IFOP SOBRE EVALUACIÃ"N CONJUNTA DEL STOCK DE ANCHOVETA DEL
+  SUR DE PERU Y NORTE DE CHILE'
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
 ---
 
 ## INTRODUCCIÓN
@@ -21,6 +22,10 @@ output:
 
 La siguiente evaluación de stock de Anchoveta del Sur del Perú y Norte de Chile fue actualizada hasta diciembre del 2017 y realizada por los integrantes del Instituto del Mar del Perú (IMARPE) y el Instituto de Fomento Pesquero (IFOP) participantes en el XV Taller de Evaluación Conjunta del Stock de Anchoveta del Sur de Perú y Norte de Chile. Este informe presenta las tres hipótesis de stock trabajada durante el taller, las cuales difieren principalmente en los parámetros de crecimiento individual y el número de desoves y reclutamientos al año. 
 
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+library(r4ss)
+source("getSummaryOne_fun.R")
+```
 
 ## Stock
 
@@ -41,6 +46,11 @@ Se emplearon además cinco índices de abundancia provenientes de cruceros científ
 - Crucero de Evaluación de Recursos Pelágicos (Perú)
 - Crucero de Biomasa Desovante (Chile)
 - Otros
+
+```{r fig.cap = "Datos empleados por los modelos de evaluacion.", echo = FALSE, message = FALSE, results = 'hide'}
+tmp2 = SS_output(dir = "models/mod_B")
+SSplotData(replist = tmp2)
+```
 
 La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
 
@@ -77,17 +87,9 @@ otros & ... & .. &  .. & ...  \\ [1ex]
 \end{tabular}
 \end{table}
 
-
-```{r message = FALSE, warning = FALSE, echo = FALSE}
-library(r4ss)
-source("getSummaryOne_fun.R")
+```{r fig.cap = "Figuras resumen del modelo de evaluación B.", echo = FALSE, message = FALSE, results = 'hide'}
+getSummaryOne(pathmod = "models", modelName = "mod_B")
 ```
-
-
-```{r fig.cap = "Figuras resumen del modelo de evaluación B.", echo = FALSE, message = FALSE}
-getSummaryOne(pathmod = "models", modelName = "modB_0_2")
-```
-
 
 ## Biomasa desovante y reclutamiento
 
