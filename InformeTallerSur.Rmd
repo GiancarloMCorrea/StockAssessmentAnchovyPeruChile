@@ -37,6 +37,13 @@ Información breve sobre el stock con referencias bibliograficas.
 
 La evaluación incluye las capturas industriales de Perú y Chile ...
 
+```{r fig.cap = "Datos empleados por los modelos de evaluacion.", echo = FALSE, message = FALSE, results = 'hide'}
+tmp2 = SS_output(dir = "models/mod_B")
+SSplotCatch(replist = tmp2, subplots = 11)
+```
+
+
+
 ## Datos y Evaluación
 
 Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). La selectividad se modeló separadamente para ambas flotas utilizando una curva logística. 
@@ -61,16 +68,39 @@ La capturabilidad para cada índice de abundancia fue estimado y asumido a ser di
 \centering
 \caption{Datos empleados en los modelos de evaluación del stock de Anchoveta SPNC.}
 \label{table-paramvalues}
-\begin{tabular}{ p{4cm} p{4cm} p{4cm} }
+\begin{tabular}{ p{4cm} p{6cm} }
 \hline \\ [-1.5ex]
-Datos & Periodo \\ [1ex]
+\textbf{Datos} & \textbf{Descripción} \\ [1ex]
 \hline \\ [-1.5ex]
-Capturas Perú & 1984-2017  \\ [1ex]
-Capturas Chile & 1984-2017  \\ [1ex]
-otros & ...  \\ [1ex]
+Fish\underline{\space}Per & Datos provenientes de la flota pesquera que opera en aguas peruanas. \\ [1ex]
+Fish\underline{\space}Chi & Datos provenientes de la flota pesquera que opera en aguas chilenas.  \\ [1ex]
+SurAdu\underline{\space}Per & Datos provenientes de las prospecciones científicas realizadas por Perú. Solo considera la porción adulta del stock.  \\ [1ex]
+SurJuv\underline{\space}Per & Datos provenientes de las prospecciones científicas realizadas por Perú. Solo considera la porción juvenil del stock. \\ [1ex]
+SurJuv\underline{\space}Chi & Datos provenientes de las prospecciones científicas realizadas por Chile. Solo considera la porción juvenil del stock. \\ [1ex]
+SurBio\underline{\space}Chi & Datos provenientes de las prospecciones científicas realizadas por Chile. Solo considera la porción adulta del stock. \\ [1ex]
 \hline
 \end{tabular}
 \end{table}
+
+
+
+\begin{table}
+\centering
+\caption{Descripción de los modelos de evaluación empleados para la Anchoveta SPNC.}
+\label{table-paramvalues}
+\begin{tabular}{ p{3cm} p{7cm} }
+\hline \\ [-1.5ex]
+\textbf{Modelo} & \textbf{Descripción} \\ [1ex]
+\hline \\ [-1.5ex]
+Modelo A & Se asume un desove y dos reclutamientos al año. Se asume un crecimiento individual acelerado y una mayor mortalidad natural.  \\ [1ex]
+Modelo B & Se asume un desove y un reclutamiento al año. Se asume un crecimiento individual lento y una menor mortalidad natural. \\ [1ex]
+Modelo C & Se asume un desove y dos reclutamientos al año. Se asume un crecimiento individual y mortalidad natural como el Modelo B. \\ [1ex]
+\hline
+\end{tabular}
+\end{table}
+
+
+
 
 
 \begin{table}
@@ -86,6 +116,8 @@ otros & ... & .. &  .. & ...  \\ [1ex]
 \hline
 \end{tabular}
 \end{table}
+
+
 
 ```{r fig.cap = "Figuras resumen del modelo de evaluación B.", echo = FALSE, message = FALSE, results = 'hide'}
 getSummaryOne(pathmod = "models", modelName = "mod_B")
