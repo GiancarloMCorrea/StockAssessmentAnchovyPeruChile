@@ -3,7 +3,7 @@
 
 #LEE ARCHIVO .REP
 
-getSummaryOne = function(pathmod = "models", modelName = "modB_0_2",
+getSummaryOne = function(pathmod = "models", modelName = "mod_C",
                          LabAxLineX = 2.5, LabAxLineY = 2.5,
                          LabAxCex = 0.8, AxCex = 0.8, BioFac = 1000000){
 
@@ -20,7 +20,9 @@ out <- SS_output(dir = file.path(pathmod, modelName),
 
 dat <- out$timeseries
 a1 <- which(dat$Era=="TIME")
-yrs <- dat$Yr[a1];bios<-dat$Bio_all[a1];spaw<-dat$SpawnBio[a1]
+yrs <- dat$Yr[a1]
+bios<-dat$Bio_all[a1]
+spaw<-dat$SpawnBio[a1]
 ano <- seq(yrs[1],yrs[length(yrs)]+0.5,by=0.5)
 #LEE ARCHIVO .STD
 year <- out$startyr:out$endyr
@@ -55,8 +57,12 @@ rec.inf<-rec.me2-2*rec.sd2
 
 #EXTRAE LOS DESVIOS DE RECLUTAMIENTOS
 dev.me=dev.sd=vector()
-dev.me<-std[which(std$name == "recdev1"),3]
-dev.sd<-std[which(std$name == "recdev1"),4]
+dev.me = rep(NA, length(year))
+dev.sd = rep(NA, length(year))
+dev.me4<-std[which(std$name == "recdev1"),3]
+dev.sd4<-std[which(std$name == "recdev1"),4]
+dev.me[1:length(dev.me4)] = dev.me4
+dev.sd[1:length(dev.sd4)] = dev.sd4
 dev.sup<-dev.me+2*dev.sd
 dev.inf<-dev.me-2*dev.sd
 #
@@ -123,7 +129,7 @@ box()
 
 
 plot(year,dev.me,col=0,xlab="",ylab="",axes = FALSE, 
-     ylim = c(min(dev.inf), max(dev.sup)))
+     ylim = c(min(dev.inf, na.rm = T), max(dev.sup, na.rm = T)))
 points(year,dev.me, pch=21, col=4, bg=4)
 segments(year,dev.sup,year,dev.inf,col=4)
 #points(year[1]-1,r0,pch=21,col=4)

@@ -1,5 +1,5 @@
 ---
-title: ' XV TALLER IMARPE-IFOP SOBRE EVALUACIÃ"N CONJUNTA DEL STOCK DE ANCHOVETA DEL
+title: ' XV TALLER IMARPE-IFOP SOBRE EVALUACION CONJUNTA DEL STOCK DE ANCHOVETA DEL
   SUR DE PERU Y NORTE DE CHILE'
 output:
   pdf_document: default
@@ -33,17 +33,6 @@ Esta evaluación se enfoca en el stock de Anchoveta del Sur del Perú y Norte de C
 
 Información breve sobre el stock con referencias bibliograficas.
 
-## Capturas
-
-La evaluación incluye las capturas industriales de Perú y Chile ...
-
-```{r fig.cap = "Datos empleados por los modelos de evaluacion.", echo = FALSE, message = FALSE, results = 'hide'}
-tmp2 = SS_output(dir = "models/mod_B")
-SSplotCatch(replist = tmp2, subplots = 11)
-```
-
-
-
 ## Datos y Evaluación
 
 Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). La selectividad se modeló separadamente para ambas flotas utilizando una curva logística. 
@@ -54,19 +43,10 @@ Se emplearon además cinco índices de abundancia provenientes de cruceros científ
 - Crucero de Biomasa Desovante (Chile)
 - Otros
 
-```{r fig.cap = "Datos empleados por los modelos de evaluacion.", echo = FALSE, message = FALSE, results = 'hide'}
-tmp2 = SS_output(dir = "models/mod_B")
-SSplotData(replist = tmp2)
-```
-
-La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
-
-.. mas..
-
 
 \begin{table}
 \centering
-\caption{Datos empleados en los modelos de evaluación del stock de Anchoveta SPNC.}
+\caption{Descripción de los datos empleados en los modelos de evaluación.}
 \label{table-paramvalues}
 \begin{tabular}{ p{4cm} p{6cm} }
 \hline \\ [-1.5ex]
@@ -84,44 +64,81 @@ SurBio\underline{\space}Chi & Datos provenientes de las prospecciones científica
 
 
 
+```{r fig.cap = "Serie temporal de datos empleados por los modelos de evaluación.", echo = FALSE, message = FALSE, results = 'hide'}
+tmp2 = SS_output(dir = "models/mod_B")
+SSplotData(replist = tmp2, margins = c(4,1,1,5.5))
+```
+
+
+```{r fig.cap = "Desembarques realizados por la flota peruana y chilena desde 1984.", echo = FALSE, message = FALSE, results = 'hide', fig.height=3.5}
+par(mar = c(2,4,1,1))
+SSplotCatch(replist = tmp2, subplots = 11, labels=c("Harvest rate/Year",  #1
+             "Continuous F",              #2
+             "Desembarques",                  #3
+             "Total catch",               #4
+             "Predicted discards",        #5
+             "Discard fraction",          #6  # need to add by weight or by length
+             "(t)",                      #7
+             "(numbers x1000)",           #8
+             "Observed and expected",     #9
+""), xlab = "")
+```
+
+
+```{r fig.cap = "Estructura de tallas de las capturas de la flota peruana y chilena desde 1984.", echo = FALSE, message = FALSE, results = 'hide', out.extra='', fig.pos = 'h'}
+SSplotComps(replist = tmp2, datonly = T, bub = T, subplots = 24, labels = c("Longitud total (cm)", "Age (yr)", "", "Observed sample size",
+  "Effective sample size", "Proportion", "cm", "Frequency", "Weight", "Length",
+  "(mt)", "(numbers x1000)", "Stdev (Age) (yr)", "Conditional AAL plot, "))
+```
+
+
+
 \begin{table}
 \centering
-\caption{Descripción de los modelos de evaluación empleados para la Anchoveta SPNC.}
+\caption{Descripción de los modelos de evaluación empleados.}
 \label{table-paramvalues}
 \begin{tabular}{ p{3cm} p{7cm} }
 \hline \\ [-1.5ex]
 \textbf{Modelo} & \textbf{Descripción} \\ [1ex]
 \hline \\ [-1.5ex]
-Modelo A & Se asume un desove y dos reclutamientos al año. Se asume un crecimiento individual acelerado y una mayor mortalidad natural.  \\ [1ex]
-Modelo B & Se asume un desove y un reclutamiento al año. Se asume un crecimiento individual lento y una menor mortalidad natural. \\ [1ex]
-Modelo C & Se asume un desove y dos reclutamientos al año. Se asume un crecimiento individual y mortalidad natural como el Modelo B. \\ [1ex]
+Modelo A & Se asume un periodo de desove y dos reclutamientos al año. K = 1.55. Linf = 17.41. M = 1.6. \\ [1ex]
+Modelo B & Se asume un periodo de desove y un reclutamiento al año. K = 0.85. Linf = 18.26. M = 1. \\ [1ex]
+Modelo C & Se asume un periodo de desove y dos reclutamientos al año. K = 0.85. Linf = 18.26. M = 1. \\ [1ex]
 \hline
 \end{tabular}
 \end{table}
 
 
+La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
+
+.. mas..
+
+### Modelo A
 
 
-
-\begin{table}
-\centering
-\caption{Parámetros para el modelo de evaluación del stock de Anchoveta SPNC.}
-\label{table-paramvalues}
-\begin{tabular}{ p{3cm} p{3cm} p{3cm} p{3cm} p{3cm} }
-\hline \\ [-1.5ex]
-Parámetro & Fase & Valor inicial & Valor Final & Desv estándar \\ [1ex]
-\hline \\ [-1.5ex]
-NatM & -3 & 0.8 & 0.8 & 0.1  \\ [1ex]
-otros & ... & .. &  .. & ...  \\ [1ex]
-\hline
-\end{tabular}
-\end{table}
+### Modelo B
 
 
+```{r echo=FALSE, results = "hide", message = FALSE, warning=FALSE}
+library(knitr)
+```
 
-```{r fig.cap = "Figuras resumen del modelo de evaluación B.", echo = FALSE, message = FALSE, results = 'hide'}
+```{r echo=FALSE, results = "asis"}
+xa = tmp2$estimated_non_dev_parameters
+xa$Parametro = rownames(xa)
+xa1 = xa[,c("Parametro", "Value", "Phase", "Init", "Parm_StDev")]
+names(xa1) = c("Parametro", "Valor estimado", "Fase", "Valor inicial", "Desv est.")
+kable(x = xa1, caption = "Parámetros estimados por el Modelo B.", row.names = FALSE, digits = 3)
+```
+
+```{r fig.cap = "Biomasa total, biomasa desovante, desvíos de reclutamiento y mortalidad por pesca obtenidos por el modelo de evaluación B.", echo = FALSE, message = FALSE, results = 'hide', out.extra='', fig.pos = 'h'}
 getSummaryOne(pathmod = "models", modelName = "mod_B")
 ```
+
+
+### Modelo C
+
+
 
 ## Biomasa desovante y reclutamiento
 
@@ -146,4 +163,4 @@ Podemos mencionar lo del crecimiento individual, resolucion temporal etc...
 
 ## REFERENCIAS BIBLIOGRÁFICAS
 
-## ANEXOS??
+## ANEXOS
