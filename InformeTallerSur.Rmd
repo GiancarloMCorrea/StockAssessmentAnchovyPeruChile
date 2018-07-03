@@ -300,10 +300,14 @@ Modelo C & Se asume un periodo de desove y dos reclutamientos al año. K = 0.85. 
 \end{tabular}
 \end{table}
 
-
 La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
 
-.. mas..
+Se asumió una selectividad de tipo logística:
+\begin{align*}
+  S_{y,f} = \frac{1}{1+ e^{-ln(19)(L'_l-\beta_{1,y,f})/\beta_{2,y,f}}}
+\end{align*}
+
+donde $\beta_{1,y,f}$ es la talla donde la selectividad es 50\% para la pesquería $f$ y el año $y$, y $\beta_{2,y,f}$ es la diferencia entre la talla donde la selectividad es 95\% y 50\%. 
 
 ### 
 
@@ -332,7 +336,6 @@ getSummaryOne(pathmod = "models", modelName = "mod_B")
 tmp3 = SS_output(dir = "models/mod_C")
 ```
 
-
 ```{r echo=FALSE, results = "asis"}
 xa = tmp3$estimated_non_dev_parameters
 xa$Parametro = rownames(xa)
@@ -347,7 +350,7 @@ getSummaryOne(pathmod = "models", modelName = "mod_C")
 
 ## Biomasa desovante y reclutamiento
 
-El reclutamiento fue usando la relación stock-reclutamiento de Beverton-Holt con un sigma R = 0.75. El stepness fue estimado .... (mas detalles sobre las salidas de ssb y reclutamiento)
+El reclutamiento fue usando la relación stock-reclutamiento de Ricker con un sigma R = 0.75. El stepness fue estimado .... (mas detalles sobre las salidas de ssb y reclutamiento)
 
 Anexar figuras time series de salidas de ssb y reclutas y algunas tablas
 
@@ -364,8 +367,42 @@ Podemos mencionar lo del crecimiento individual, resolucion temporal etc...
 
 ## CONCLUSIONES
 
+Se requiere estandarizar los formatos de datos y las metodologías empleadas para la estimación de variables y parámetros usados en la evaluación del stock de anchoveta del sur de Perú y norte de Chile.
+
+
+Existen similitudes y diferencias en las variables y parámetros de la historia de vida de la anchoveta estimados y utilizados por cada Instituto. Dentro de las similitudes se puede mencionar la composición por tallas de los desembarques y el proceso reproductivo (máxima actividad reproductiva en invierno y mínima en otoño), mientras que dentro de las diferencias se puede mencionar al crecimiento (KPerú ~0.84/año y máxima edad~3 años, KChile ~1.09 y máxima edad ~2años) y la mortalidad natural (MPerú ~0.8/año, MChile ~2.2/año).
+
+Los modelos implementados en la plataforma Stock Synthesis mostraron que las biomasa total del stock para el año 2017 estuvo alrededor de 2 millones de toneladas. Las mortalidades por pesca han ido disminuyendo desde el año 2014, siendo estimadas para el año 2017 en 0.27. 
+
 ## RECOMENDACIONES
+
+\begin{itemize}
+  \item Priorizar la discusión metodológica para que las variables y parámetros estimados por ambos Institutos sean comparables entre sí tanto en tiempo como en espacio.
+  \item Realizar investigaciones conjuntas sobre la bio-ecología de la anchoveta, de manera que exista un consenso respecto a los parámetros de la historia de vida e hipótesis (por ejemplo sobre los forzantes del reclutamiento, etc.) utilizados en la evaluación del stock.
+  \item Implementar métodos de evaluación alternativos que permitan incluir toda la riqueza de la información disponible.
+  \item Continuar con la realización de los Talleres Conjuntos de Evaluación del stock sur Perú-norte Chile y todo el trabajo que ello implica (intercambio de información, estandarización de métodos, investigaciones conjuntas). 
+  Realizar el Décimo Quinto Taller de Evaluación Conjunta en Perú con una duración de una semana. Se propone como fecha tentativa noviembre del 2017.
+  \item Cumplir con la propuesta de tareas inter-sesionales por institución especificadas en el Anexo 1.
+  \item Cumplir con la propuesta del contenido de las presentaciones por institución en futuros talleres, las cuales están especificadas en el Anexo 2.
+  \item Mantener el intercambio trimestral de estadísticas según el convenio vigente entre IFOP e IMARPE.
+  \item Mantener la confidencialidad de la información de intercambio entre Perú y Chile.
+\end{itemize}
+
 
 ## REFERENCIAS BIBLIOGRÁFICAS
 
-## ANEXOS
+Bouchon , M., C. Peña, E. Diaz, M., E. Goya, B. Buitrón, S. Sanchez, E. Delgado y J. Mori. 2008. Información biológica-pesquera de la Región Sur del Perú (2004 - 2007). Informe Interno Instituto del Mar del Perú, 21 p.
+
+Castillo R, Peraltilla S, Aliaga A, Flores M, Ballón M, Calderón J, et al. 2009. Protocolo técnico para la evaluación acústica de las áreas de distribución y abundancia de recursos pelágicos en el mar peruano.
+
+Claramunt, G., Herrera, G., Moreno, P. & Azocar, C. 2014. Evaluación de la biomasa desovante de anchoveta en la XV, I y II Regiones, Año 2013. Pre-Informe Final. FIP 2013-06.
+
+Espíndola, F. 2018. Spatial and temporal variability of the spawning habitat of anchovy (Engraulis ringens) in relation to hydrographic conditions of northern Chile. Submitted to Progress in Oceanography.
+
+Martell, S., & Froese, R. (2013). A simple method for estimating MSY from catch and resilience. Fish and Fisheries, 14(4), 504-514.
+
+Methot, R. and Wetzel, Ch. (2013). Stock synthesis: A biological and statistical framework for fish stock assessment and fishery management. Fisheries Research, 142: 86-99.
+
+Oliveros-Ramos, R, & Peña, C. (2011). Modelado y análisis del reclutamiento de la anchoveta peruana (Engraulis ringens) entre 1961 y 2009. Ciencias marinas, 37(4b), 659-674.
+
+Zhou, S. (2013a). Catch-only methods: a brief review and possible improvement. In: Knowledge Based Bio-Economy workshop. Hobart TAS, Australia.
