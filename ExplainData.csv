@@ -1,0 +1,7 @@
+Datos,Descripción
+Fish_Per,Datos provenientes de la flota pesquera que opera en aguas peruanas.
+Fish_Chi,Datos provenientes de la flota pesquera que opera en aguas chilenas.
+SurAdu_Per,Biomasa del stock adulto estimado por metodos acusticos en Peru.
+SurJuv_Per,Biomasa del stock juvenil estimado por metodos acusticos en Peru.
+SurJuv_Chi,Biomasa del stock juvenil estimado por metodos acusticos en Peru.
+SurBio_Chi,Biomasa del stock adulto estimado por metodos acusticos en Chile.

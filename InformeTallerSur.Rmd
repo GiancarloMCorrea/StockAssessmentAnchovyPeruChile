@@ -1,6 +1,7 @@
 ---
-title: ' XV TALLER IMARPE-IFOP SOBRE EVALUACION CONJUNTA DEL STOCK DE ANCHOVETA DEL
+title: 'XV TALLER IMARPE-IFOP SOBRE EVALUACION CONJUNTA DEL STOCK DE ANCHOVETA DEL
   SUR DE PERU Y NORTE DE CHILE'
+subtitle: 'LIMA, 04 - 07 DE DICIEMBRE DE 2017'
 output:
   pdf_document:
     toc: yes
@@ -18,46 +19,94 @@ header-includes:
 - \usepackage{float}
 ---
 
+\newpage
+
 ## INTRODUCCIÓN
 
-En concordancia con el Convenio de Colaboración Científica y Técnica firmado en Lima, Perú en 1992, entre el Instituto del Mar del Perú (IMARPE) y el Instituto de Fomento Pesquero de Chile (IFOP), se realizó el Décimo Cuarto Taller de Evaluación Conjunta del Stock de Anchoveta del Sur del Perú y Norte de Chile. Esta actividad contó con el apoyo del Proyecto GEF-Humboldt.
+```{r message = FALSE, warning = FALSE, echo = FALSE}
+library(r4ss)
+source("getSummaryOne_fun.R")
+```
 
-El presente informe contiene los resultados de la Evaluación Conjunta, así como recomendaciones de actividades a ser realizadas por cada Instituto. Este documento tiene el carácter de preliminar y está sujeto a ratificación por las autoridades de ambos Institutos.  El área de estudio del presente trabajo abarcó entre el 16 y 24°S.
+En concordancia con el Convenio de Colaboración Científica y Técnica firmado en Lima, Perú en 1992, entre el Instituto del Mar del Perú (IMARPE) y el Instituto de Fomento Pesquero de Chile (IFOP), se realizó el Décimo Quinto Taller de Evaluación Conjunta del Stock de Anchoveta del Sur del Perú y Norte de Chile.
 
-![](Figures/fig1.png)
+El presente informe contiene los resultados de la Evaluación Conjunta, así como recomendaciones de actividades a ser realizadas por cada Instituto. Este documento tiene el carácter de preliminar y está sujeto a ratificación por las autoridades de ambos Institutos. 
+
+El área de estudio del presente trabajo abarcó entre el 16 y 24°S.
+
+![Área de distribución del stock.](Figures/fig1.png)
 
 ## GRUPO DE TRABAJO
 
-El trabajo fue desarrollado por las siguientes personas:
+El trabajo fue desarrollado por las siguientes personas (Cuadro 1): 
 
 ```{r echo=FALSE, results = "hide", message = FALSE, warning=FALSE}
 library(knitr)
 ```
 
-```{r echo=FALSE, results = "asis"}
+```{r table1, echo=FALSE, results = "asis"}
 listPar = read.csv("ListaParticipantes.csv")
 kable(x = listPar, caption = "Lista de participantes.")
 ```
 
 ## CONDICIONES OCEANOGRÁFICAS
 
+### Oceanografía del Pacifico Sur oriental
+
+La costa sudamericana y especialmente la costa centro norte de Chile y sur de Perú forman parte del sistema de corrientes de Humboldt. Este sistema se caracteriza por corrientes a lo largo de la costa superficiales y subsuperficiales, con masas de agua de origen ecuatorial y subtropical que se mueven hacia el polo y masas de aguas subantartica, intermedia y profunda que se desplazan hacia el ecuador. Estos flujos interactúan con continuos procesos de surgencia costera que se distribuyen heterogéneamente a lo largo de la costa norte de Chile, y que son forzados localmente por los vientos regionales inducidos por el desplazamiento estacional del anticiclón del pacifico sur. 
+
+La presencia de la surgencia costera forma frentes de surgencia, lenguas de surgencia y filamentos al mismo tiempo que producen la inestabilidad de los flujos superficiales generando meandros que ocasionalmente forman remolinos de mesoescala que se desplazan hacia el oeste. La surgencia produce el ascenso de aguas ricas en nutrientes que generan una mayor productividad biológica superficial a lo largo de una banda costera con flujos hacia fuera de la costa que convergen en el frente de surgencia y los frentes de plataforma. En estas zonas se produce convergencia y hundimiento de aguas costeras afloradas bajo aguas oceánicas menos densas formando zonas de acumulación y tramas tróficas locales. Situación similar ocurre en los remolinos de mesoescala aunque generan un transporte de calor, agua y organismos más lejano de la costa que las lenguas de surgencia o filamentos, incluso generando sus propias tramas tróficas en el centro o en los bordes. 
+
+Dentro de estos patrones generales se genera una variabilidad estacional debido a los cambios estacionales de la radiación solar disponible como también de la posición del anticiclón del Pacifico sur. Estos tipos de cambios estacionales son los de mayor persistencia en el tiempo por lo que han definido los procesos reproductivos e historia de vida de los organismos del ecosistema del Pacifico Sur Oeste. Se suman los impactos moduladores que amplifican o inhiben estos procesos asociados a eventos interanuales como El Niño/La Niña o Interdecadales asociados a cambios de régimen o incluso los de tendencias de muy largas asociadas al cambio climático.   
+
+
 ### Climatología de la Temperatura Superficial del Mar (TSM)
 
-Al analizar la serie de TSM de la estación de Ilo se distingue claramente la ocurrencia de los eventos El Niño 1997-1998 (periodo durante el cual se registró una TSM máxima de 22.6 °C) y 2015-2016 (periodo durante el cual se registró una TSM máxima de 20.3 °C), así mismo, también se distinguen eventos fríos en los años 1998 (con una TSM mínima de 13.7 °C), 2007 (con una TSM mínima de 13.1 °C) y 2010 (con una TSM mínima de 13.7 °C). Desde la segunda mitad de 2016 la TSM viene registrando valores cercanos al patrón (Figura \ref{fig1}).
+La distribución de la TSM muestra un rango entre 25° y 16°C con un decaimiento latitudinal y zonal, asociados a la disminución de la radiación solar hacia el sur y la presencia de una banda costera de aguas de menor temperatura producto de permanentes surgencias costeras (Figura \ref{fig1}). Las mayores TSM se observan entre los meses estivales (Diciembre-Abril) y las menores en meses invernales (Julio -Septiembre) con estaciones de transición de Primavera (Septiembre-Diciembre) y Otoño (Mayo-Junio). La banda costera se mantiene durante todo el año, aunque el gradiente zonal se fortalece entre primavera y verano debido a las mayores TSM en el Océano y la intensificación de la surgencia en la costa forzada por el aumento de la componente del viento que favorece la surgencia.
 
-![Temperatura Superficial del Mar mensual en Ilo (17°39'S) (1996-2016).\label{fig1}](Figures/fig2.png)
+Dentro de la distribución de TSM cabe señalar la zona del codo de Arica, Zona compartida con Perú, muestra una dinámica particular asociada a un núcleo oceánico de mayor temperatura permanente y una zona de transición entre zonas de surgencia de Chile y sur de Perú. En esta dinámica el cambio de dirección de los vientos por efecto topográfico puede estar jugando un rol preponderante lo que también se ve reflejado en las corrientes superficiales y profundas. 
 
-En el sur de Perú y norte de Chile la distribución de la TSM muestra un rango entre 25 y 16°C con un decaimiento latitudinal y zonal, asociados a la disminución de la radiación solar hacia el sur y la presencia de una banda costera de aguas de menor temperatura producto de permanentes surgencias costeras (Figura \ref{fig2}). Las mayores TSM se observan entre los meses estivales (Diciembre-Abril) y las menores en meses invernales (Julio -Septiembre) con estaciones de transición de primavera (Septiembre-Diciembre) y Otoño (Mayo-Junio). La banda costera se mantiene durante todo el año, aunque el gradiente zonal se fortalece entre primavera y verano debido a las mayores TSM en el Océano y la intensificación de la surgencia en la costa forzada por el aumento de la componente del viento que favorece la surgencia.  
+![Distribución espacial mensual de la TSM (Fuente: Imágenes satelitales MODIS).\label{fig1}](Figures/fig3.png)
 
-![Distribución espacial mensual de la TSM (Fuente: Imágenes satelitales MODIS).\label{fig2}](Figures/fig3.png)
+La serie temporal de las anomalías térmicas de la temperatura superficial del mar en Ilo, muestra una predominancia de anomalías negativas desde julio de 1998 (después de El Niño extraordinario 1997-98) hasta inicios del 2015 cuando se pasó a una dominancia de anomalías positivas que se mantuvieron hasta junio del 2017, asociadas al desarrollo de los eventos El Niño 2015-16 y El Niño costero del 2017; resaltando el verano del 2016 donde se registraron anomalías de hasta +3°C. Pasando después de este periodo cálido a una condición neutra con anomalías negativas (Figura \ref{fig2}).
 
-Dentro de la distribución de TSM cabe señalar la zona del codo de peruano-chileno, muestra una dinámica particular asociada a un núcleo oceánico de mayor temperatura permanente y una zona de transición entre zonas de surgencia de Chile y sur de Perú. En esta dinámica el cambio de dirección de los vientos por efecto topográfico puede estar jugando un rol preponderante lo que también se ve reflejado en las corrientes superficiales y profundas. 
+La estructura térmica frente a Ilo sobre los 100 m de profundidad, mostro mayores temperaturas entre enero del 2015 y marzo del 2016, respecto al periodo abril-2016 a noviembre 2017. En lo que va del año 2017 resalta un enfriamiento de toda la columna de agua  a partir de agosto manteniéndose esta condición hasta la fecha exceptuando la capa sobre los 20m donde se observó un ligero incremento térmico a partir de la segunda quincena de octubre (Figura \ref{fig3}).
+
+![Temperatura Superficial del Mar mensual en Ilo (1996-2016).\label{fig2}](Figures/fig1_1.png)
+
+Respecto a la salinidad, esta variable presento una influencia atípica de las Aguas Subtropicales Superficiales (ASS) entre marzo-2015 y abril-2016, debido al debilitamiento de los vientos, lo cual permitió el acercamiento de esta masa de agua a la costa. Después de mayo-2016 la predominancia fue de Aguas Costeras Frías en toda la columna de agua, observándose solamente en octubre-noviembre del 2016 y mayo-junio 2017 una ligera influencia de las ASS en los primeros 20m de profundidad.
+
+![Perfil vertical de la temperatura y salinidad frente a Ilo reportado durante noviembre del 2017.\label{fig3}](Figures/fig1_2.png)
+
+### Climatología del viento y turbulencia
+
+Al igual que la TSM, la intensidad y dirección del viento, así como también la turbulencia tiene un comportamiento estacional que responde al desplazamiento estacional del Anticiclón del Pacifico Sur. Mientras el viento y la turbulencia en la zona oceánica se intensifican en el periodo de invierno, entre primavera y verano se incrementan en la banda costera, aunque con magnitudes significativamente menores que las registradas en la zona oceánica. Estos resultados son coherentes con la intensificación de la surgencia costera en primavera y verano. Por otro lado, en el codo de Arica donde la dirección del viento se desvía hacia al noroeste los valores de turbulencia permanecen bajos en comparación al resto de la zona (Figura \ref{fig4_1}). La distribución de la turbulencia sugiere que la zona norte de Chile y sur de Perú es una zona de transición separadas por la dinámica del codo de Arica.  
+
+![Distribución espacial mensual de las corrientes geostroficas (Fuente: Imágenes satelitales provenientes del programa AVISO).\label{fig4_1}](Figures/fig3_1.jpg)
 
 ### Climatología de las corrientes
 
-Las corrientes muestran patrones estacionales al igual que las distribuciones de TSM y viento (Figura \ref{fig3}). Desde diciembre y desde la banda costera las principales corrientes promedio comienzan a fluir hacia el norte en la medida que se incrementa el viento cerca del continente. Por otro lado, en la época invernal cuando la intensidad del viento se debilita cerca del continente las corrientes se debilitan y forman meandros y remolinos, incluso se favorece el trasporte hacia el sur en la zona oceánica. En la zona del codo de Arica, las corrientes aparecen débiles casi en todo el año, excepto a partir de junio cuando se forma un remolino ciclónico que se desprende de la costa y permanece en el eje meridional de los 72°W hasta el mes de septiembre.
+Las corrientes muestran patrones estacionales al igual que las distribuciones de TSM y viento (Figura \ref{fig4_2}). Desde diciembre y desde la banda costera las principales corrientes promedio comienzan a fluir hacia el norte en la medida que se incrementa el viento cerca del continente. Por otro lado, en la época invernal cuando la intensidad del viento se debilita cerca del continente las corrientes se debilitan y forman meandros y remolinos, incluso se favorece el trasporte hacia el sur en la zona oceánica. En la zona del codo de Arica, las corrientes aparecen débiles casi en todo el año, excepto a partir de junio cuando se forma un remolino ciclónico que se desprende de la costa y permanece en el eje meridional de los 72°W hasta el mes de septiembre.
 
-![Distribución espacial mensual de las corrientes geostroficas (Fuente: Imágenes satelitales provenientes del programa AVISO).\label{fig3}](Figures/fig4.png)
+![Distribución espacial mensual de las corrientes geostroficas (Fuente: Imágenes satelitales provenientes del programa AVISO).\label{fig4_2}](Figures/fig4.png)
+
+### Variabilidad de la concentración de Clorofila-a
+
+A diferencia de las otras variables, la concentración de clorofila en la banda costera presento un patrón estacional débil con incrementos irregulares en el periodo estival, pero con valores sobre 1 µg/L durante casi todo el año producto de la surgencia permanente en la zona (Figura \ref{fig5_1}). Al sur de la península de Mejillones la banda costera presentó las menores concentraciones, no por un problema de disponibilidad de luz o nutrientes sino por un intenso trasporte de Ekman fuera de la banda costera. Entre Pisagua y la península de Mejillones la concentración de clorofila se mantiene con valores mayores a 1 µg/L producto de la casi permanente aunque débil surgencia costera. En el codo de Arica las concentraciones de clorofila tienden a ser mayores durante el periodo.   
+
+![Concentración de clorofila-a a lo largo de la banda costera en función del tiempo (Fuente: Imágenes satelitales provenientes del programa MODIS).\label{fig5_1}](Figures/fig5_1.png)
+
+### Variabilidad de ictioplancton y zooplancton
+
+Al igual que las variables ambientales, el zooplancton presentó una señal anual que mostro las mayores abundancias y biomasas entre agosto y noviembre, periodo de incremento de la surgencia. Por otro lado, las mayores densidades de huevos de anchoveta se han registraron entre julio y octubre de cada año, con un máximo en septiembre, acorde a la señal anual descrita para el zooplancton. En términos de distribución los Centros de Acción Biológica (CAB) reconocidos se presentan en la zona de la península de Mejillones, la desembocadura del río Loa y en el codo de Arica, siendo estos dos ultimo los de mayor importancia durante el desove de primavera. 
+
+### Modelo conceptual de transporte
+
+Los resultados de estaciones costeras mensuales y cruceros anuales que monitorean el desove y reclutamiento de la anchoveta sugieren la zona de la desembocadura del Loa (21°S) es uno de los más importantes CAB asociadas un área de desove de anchoveta en el norte de Chile (Figura \ref{fig6_1}). El patrón de corrientes, la baja turbulencia y los vientos débiles sugieren que en esta zona la retención y el enriquecimiento son favorecidos durante el periodo de desove (julio a diciembre). Posteriormente (diciembre-marzo) y en la medida que los huevos se transforman en larvas, las corrientes favorecen un trasporte hacia el norte encontrándose con numerosos centros productivos de surgencia hasta llegar al área del codo de Arica. En este otro CAB, zona de retención asociada a baja turbulencia producida por el viento y recirculación de baja intensidad, las larvas provenientes del sur se incorporarían al producto del desove local. Desde abril a julio, las corrientes en la costa se presentan débiles e irregulares, mientras que en la zona exterior favorecen el transporte hacia el sur, especialmente entre septiembre y diciembre. A través de este esquema se propone un patrón de migración norte sur que conectaría el área de desove del norte de Chile un área de desove y reclutamiento del sur de Perú asociada a la dinámica del codo de Arica.
+
+![Modelo conceptual que muestra la distribución promedio de las corrientes señalando los CAB y los patrones de circulación que favorecerían el transporte hacia el norte de los productos del desove.\label{fig6_1}](Figures/fig6_1.png)
+
+
 
 ## PESQUERÍA
 
@@ -69,28 +118,13 @@ source("getSummaryOne_fun.R")
 
 ### Desembarques
 
-Durante el año 2015, el desembarque de anchoveta correspondiente de manera agregada al sur del Perú y norte de Chile fue de 0.809 millones t. Esta cifra fue 32% menor a la registrada en 2014 (1.246 millones t) y 36% inferior al promedio 1980-2014 (1.259 millones t). El rango inter-cuartílico de los desembarques registrados durante todo este periodo fue definido por los valores Q1 (25% de los datos) = 0.781 millones t y Q3 (75% de los datos) = 1.704 millones t, mientras que la mediana fue estimada en Q2 (50% de los datos) = 1.158 millones t. El año con el nivel de desembarque más alto fue 1994 con 2.794 millones t, mientras que en dicho año, junto con 1989, 1992, 1995, 1997, 2002, 2004, 2007 y 2011, se superó el Q3. Por el contrario, el año con el nivel más bajo de desembarque fue 1983 con solo 390 t, mientras que en dicho año, junto con 1980, 1982, 1984, 1985, 1987, 1990, 1998 y 2003, no se alcanzó el Q1 (Tabla 1, Figura 4).
+Durante el año 2017, el desembarque de anchoveta correspondiente de manera agregada al sur del Perú y norte de Chile fue de 0.399 millones t. Esta cifra fue 51% menor a la registrada en 2015 (0.809 millones t) y 36% inferior al promedio 1980-2015 (1.259 millones t). El rango inter-cuarttílico de los desembarques registrados durante todo este periodo fue definido por los valores Q1 (25% de los datos) = 0.683 millones t y Q3 (75% de los datos) = 1.704 millones t, mientras que la mediana fue estimada en Q2 (50% de los datos) = 1.134 millones t. El año con el nivel de desembarque más alto fue 1994 con 2.794 millones t, mientras que en dicho año, junto con 1989, 1992, 1995, 1995, 1997, 2002, 2004, 2007 y 2011, se superó el Q3. Por el contrario, el año con el nivel más bajo de desembarque fue 1983 con solo 390 t, mientras que en dicho año, junto con 1980, 1982, 1984, 1985, 1987, 1998, 2003 y 2016, no se alcanzó el Q1 (Cuadro 2, Figura \ref{fig7_1}). 
 
-En la región sur del Perú, desde el 2003 al 2008, la tendencia de los desembarques fue creciente en el primer trimestre del año, asociado al incremento del esfuerzo pesquero debido a las vedas impuestas en la región Norte-Centro (Bouchon et al. 2008). Durante el 2009 el patrón estacional cambió, observándose las mayores capturas en los últimos meses del año.
-```{r message = FALSE, warning = FALSE, echo = FALSE, results = 'hide'}
-tmp2 = SS_output(dir = "models/mod_B")
-```
+En la región sur del Perú, desde el 2003 al 2008, la tendencia de los desembarques fue creciente en el primer trimestre del año, asociado al incremento del esfuerzo pesquero debido a las vedas impuestas en la región Norte-Centro (Bouchon, et al. 2008). Durante el 2009 el patrón estacional cambió, observándose las mayores capturas en los últimos meses del año. 
 
-```{r fig.cap = "Desembarques de anchoveta por año en el sur de Perú (Fish_Per) y norte de Chile (Fish_Chi).", echo = FALSE, message = FALSE, results = 'hide', fig.height=3.5}
-par(mar = c(2,4,1,1))
-SSplotCatch(replist = tmp2, subplots = 11, labels=c("Harvest rate/Year",  #1
-             "Continuous F",              #2
-             "Desembarques",                  #3
-             "Total catch",               #4
-             "Predicted discards",        #5
-             "Discard fraction",          #6  # need to add by weight or by length
-             "(t)",                      #7
-             "(numbers x1000)",           #8
-             "Observed and expected",     #9
-""), xlab = "")
-```
+![Modelo conceptual que muestra la distribución promedio de las corrientes señalando los CAB y los patrones de circulación que favorecerían el transporte hacia el norte de los productos del desove.\label{fig7_1}](Figures/fig7_1.png)
 
-En la zona norte de Chile, la pesquería de pequeños pelágicos, ha presentado 3 períodos: el primero de 1955 a 1976, basado casi exclusivamente en la extracción de anchoveta (\textit{Engraulis ringens}), donde se observó un crecimiento sostenido del recurso hasta 1966 alcanzando 1,1 millones de toneladas (ton), para luego registrar una fuerte reducción de las capturas (promedio 1967-1972 de 540 mil ton), siendo más notable posterior al evento El Niño 1972-73, con niveles promedio de 330 mil ton (1974-1976). El segundo período comienza a mediados de la década del 70 y corresponde a una etapa de bajas capturas de anchoveta y un aumento notable en la abundancia de sardina española (\textit{Sardinops sagax}), especie que sostuvo la pesquería hasta fines de la década del 80 con capturas promedio de 1,8 millón de ton entre 1978 y 1989. El tercer periodo se establece desde mediados de los 80 y se caracteriza por una mayor abundancia y estabilización en las capturas, las que se nivelan en torno a los 1,3 millones de ton, cifra que fue disminuyendo para promediar las 600 mil ton en el período 2006-2016. La anchoveta representa más del 80% de las capturas, seguida por jurel y caballa.
+En la zona norte de Chile, la pesquería de pequeños pelágicos, ha presentado 3 períodos: el primero de 1955 a 1976, basado casi exclusivamente en la extracción de anchoveta (\textit{Engraulis ringens}), donde se observó un crecimiento sostenido del recurso hasta 1966 alcanzando 1,1 millones de toneladas (ton), para luego registrar una fuerte reducción de las capturas (promedio 1967-1972 de 540 mil ton), siendo más notable posterior al evento El Niño 1972-73, con niveles promedio de 330 mil ton (1974-1976). El segundo período comienza a mediados de la década del 70 y corresponde a una etapa de bajas capturas de anchoveta y un aumento notable en la abundancia de sardina española (\textit{Sardinops sagax}), especie que sostuvo la pesquería hasta fines de la década del 80 con capturas promedio de 1,8 millón de ton entre 1978 y 1989. El tercer periodo se centró en la anchoveta y se establece desde mediados de los 80 y se caracteriza por una mayor abundancia y estabilización en las capturas, las que se nivelan en torno a los 1,3 millones de t, cifra que fue disminuyendo para promediar las 600 mil t en el período 2006-2016. La anchoveta representa más del 80% de las capturas, seguida por jurel (\textit{Trachurus murphyi}) y caballa (\textit{Scomber japonicus}).
 
 ```{r echo=FALSE, results = "asis"}
 listDesem = read.csv("DesembarqueAnual.csv")
@@ -99,7 +133,7 @@ kable(x = listDesem, caption = "Desembarques de anchoveta (ton) por año en el su
 
 ### Estacionalidad de los desembarques
 
-El patrón estacional de captura de anchoveta para la zona sur del Perú y norte de Chile indica que los mayores desembarques se producen en el primer semestre. En el sur del Perú las capturas se producen principalmente en el verano y asociadas a un incremento del esfuerzo pesquero, debido a desplazamientos de la flota de la región norte-centro del Perú en épocas de veda. Asimismo, informaciones de cruceros, indican mayor disponibilidad de anchoveta durante el primer semestre en la región sur. En la zona norte de Chile, temporalmente las capturas se concentran en el primer semestre (50 a 60%), el segundo semestre la actividad es reducida principalmente por veda reproductiva (agosto - septiembre), escaso ambiente de pesca y/o paralización voluntaria de la flota por presencia de juveniles (Figura \ref{fig5}).
+El patrón estacional de captura de anchoveta para la zona sur del Perú y norte de Chile indica que los mayores desembarques se producen en el primer semestre. En el sur del Perú las capturas se producen principalmente en el verano y asociadas a un incremento del esfuerzo pesquero, debido a desplazamientos de la flota de la región norte-centro del Perú en épocas de veda. Asimismo, informaciones de cruceros, indican mayor disponibilidad de anchoveta durante el primer semestre en la región sur. En la zona norte de Chile, temporalmente las capturas, se concentran en el primer semestre (50 a 60%), el segundo semestre la actividad es reducida principalmente por veda reproductiva (agosto - septiembre), escaso ambiente de pesca y/o paralización voluntaria de la flota por presencia de juveniles. Desde el año 2011 se registra un aumento relevante en las capturas posterior a la veda en los meses de octubre y noviembre representando un 30 a 40% (Figura \ref{fig5}).
 
 ![Estacionalidad de los desembarques de anchoveta sur Perú - norte Chile.\label{fig5}](Figures/fig6.png)
 
@@ -117,15 +151,42 @@ En general, las tallas de anchoveta han variado entre 7 y 18,5 cm, observándose 
 
 ![Composición por tallas anual de los desembarques de anchoveta del sur de Perú y norte de Chile durante 1984 - 2016.\label{fig8}](Figures/fig9.png)
 
+### Esfuerzo pesquero y CPUE
+
+El esfuerzo pesquero en la zona se mide a través de viajes con pesca (vcp) y capacidad de bodega desplazada (Cb$\times$vcp). En este sentido los viajes con pesca presentan una tendencia creciente entre 1986 -1996 con un promedio de 8.865 vcp, luego una estabilización con 9.729 vcp, a partir del año 2006 los viajes con pesca presentan una disminución alcanzando en promedio los 6.000 vcp. En relación a la capacidad de bodega desplazada esta presenta una tendencia creciente alcanzando un máximo de 4,5x106 Cb$\times$vcp en 1995, posterior al año 1996 una alta variabilidad con valores promedios de 3,57 $\times 10^6$ Cb$\times$vcp, al igual que los vcp se registra una tendencia negativa con 3$\times 10^6$ Cb$\times$vcp en promedio. Los rendimientos de pesca (t/vcp) se mantienen relativamente altos y constantes dado a la dinámica de la flota, la cual opera de forma contagiosa favoreciendo la búsqueda por un número reducido de naves y la operación masiva está sujeta al resultado positivo en la búsqueda.
+
+### Tamaño y composición de la flota
+
+La flota pesquera de la zona Arica- Antofagasta está compuesta por embarcaciones industriales y artesanales las que han mostrado una diferente evolución en términos del número de embarcaciones. Las naves industriales han mostrado un crecimiento alcanzando en promedio 186 naves con 49 mil $m^3$ entre 1987 y 1990. Luego, de 1994 a 1997 se detecta un descenso de la flota reflejado por un promedio de 140 barcos (308 $m^3$ de bodega promedio), número que disminuyó a partir de 1999 donde se inició una reorganización de las principales empresas, optimizando su esquema de operación, reasignando las naves entre los puertos bases y operación de naves eficientes con menor gastos de mantención, situación acelerada con la regulación a fines del 2002 de cuotas de captura y Límites Máximos de Captura por Armador. En los últimos años esta situación se tradujo en una fuerte concentración de la flota, llegando a operar un promedio de 81 embarcaciones (385 $m^3$) entre 2002 al 2008 para disminuir a 60 naves entre 2009 y 2016, pero con una mayor capacidad de bodega (423 $m^3$). En la actualidad las embarcaciones presentan una capacidad de bodega entre 330 a 960 $m^3$ y eslora total entre 30 a 49 m. En la Zona Norte prima la plantilla americana, esto dado las mejores condiciones meteorológicas que se presenta en esta área de estudio. El diseño americano se caracteriza por tener el puente y sala de máquinas a proa y la bodega entre el alcázar y la toldilla. La popa es ancha y despejada, lo que le permite adujar la red en forma adecuada y sirve de plataforma a la embarcación auxiliar (panga). Estas embarcaciones utilizan redes anchoveteras con tamaño de malla 3/4 y 5/8 pulgadas y entre 23 y 28 cuerpos de red, con una altura de relinga de flotadores que oscila de 350 a 470 brazas y una altura que fluctúa entre 65 y 70 brazas. 
+
+Las naves artesanales presentan una tendencia creciente entre 1980 a 2002, alcanzando una estabilización en el número de embarcaciones, operando anualmente entre 100 a 120 naves, con capacidad de bodega entre 4 y 95 m3 de capacidad de bodega, siendo el promedio de 55 $m^3$. La eslora total fluctuó entre 8 a 18 m, con un promedio de 15 m.
+
+### Medidas de administración
+
+En Chile, la pesquería de anchoveta de las Regiones XV, I y II se encuentra bajo régimen de Plena Explotación y en consonancia el otorgamiento de nuevos permisos para la pesca artesanal o industrial está suspendido. Desde el 2001, el esquema de asignación de cuota para el sector industrial es el de Límite Máximo de Captura por Armador y para el sector artesanal existe el fraccionamiento de la cuota por región. Otras medidas de manejo en Chile son las vedas móviles para proteger los procesos biológicos de reclutamiento y reproductivo. Por último, mediante resoluciones de SUBPESCA se permite el acceso "excepcional" a embarcaciones industriales para que pesquen anchoveta dentro de las primeras 5 millas náuticas que normalmente se reservan para la pesca artesanal. Mediante el D. EX. N° 749 de 29 de julio de 2013 se establece la veda biológica para el recurso anchoveta en el área marítima comprendida entre el límite norte de la XV Región y el límite sur de la II Región, la que rige en un periodo referencial comprendido entre el 1° de junio de cada año y el 31 de enero del año calendario siguiente. Por su parte, los valores que activan efectivamente la veda corresponden a la ocurrencia simultánea de un IAD ??? 25% y un IGS $\geq$ 6% durante dos semanas, sean o no sucesivas. No obstante, si al 24 de agosto del año calendario respectivo el criterio de inicio de veda no ha sido alcanzado, regirá automáticamente una veda fija por 45 días corridos entre el 25 de agosto y el 8 de octubre, ambas fechas inclusive. Por su parte, si posterior a la veda efectiva se verifica la aparición de un valor IAD $\geq$ 35%, durante el periodo referencial, regirá una veda por un periodo máximo de 10 días corridos, a partir del lunes siguiente a la publicación del reporte. Para la veda reproductiva actualmente no existe un decreto, sin embargo, se ejecuta una paralización voluntaria de la flota cuando se evidencia una alta participación de juveniles en la zona. Hasta la fecha esta vigente un criterio experto que señala "Si durante 2 días consecutivos, la estructura de talla de anchoveta, ponderada a la captura presenta un valor $\geq$ 25% de ejemplares menores de 12,0 cm, en cualquiera de las zonas, siempre que la captura fluctúe de 500 a 700 t diarias", criterio que en la última década no se aplica por la baja aparición de juveniles debido al evitamiento de la flota a zonas de juveniles o paralización voluntaria. Recientemente se presentó al comité científico y de manejo un nuevo criterio el que señala "Si la proporción de ejemplares $\leq$ 11,5 cm (ponderada a la captura), en un período de 3 semanas entre un 10% - 15% en 2 semanas (sucesivas o no), se activa la veda por 30 días" dentro del periodo referencial entre octubre a marzo. Si al 31 de diciembre los criterios no han sido alcanzados, se establece automáticamente una veda en la XV - I Región.
+
+En el Perú, el manejo de la anchoveta peruana está centrado en la sostenibilidad del recurso, por lo que las cuotas globales de captura y las vedas biológicas han sido las medidas de manejo más utilizadas. La administración de la pesquería de anchoveta ha evolucionado desde un acceso abierto con cuotas globales, hasta un sistema de cuotas individuales por embarcación denominado "Límites máximos de captura por embarcación" (D. Ley 1084) en el 2008, que empezó a ser efectiva para el stock sur de la anchoveta a partir de la primera temporada de pesca del 2009 (R.M. 249-2009-PRODUCE), correspondiente al periodo julio a diciembre del 2009.
+
+Durante el 2016, se tuvo dos temporadas de pesca de anchoveta en la región sur de Perú, la primera entre febrero a junio (R.M. 017-2016-PRODUCE) y la segunda de julio a diciembre (R.M: 242-2016-PRODUCE). Debido a la alta incidencia de juveniles durante el año se recomendaron vedas precautorias que alcanzaron a 20, entre vedas cortas (de 5 días) y suspensiones preventivas (de 2 días), protegiéndose 24 áreas diferentes en 78 días.
+
+Durante el 2017, igualmente se ha tenido dos temporadas de pesca de anchoveta en la región sur de Perú, la primera de enero a junio (R.M. 010-2017-PRODUCE) y la segunda, en ejecución de julio a diciembre (R.M. 306-2017-PRODUCE). En este periodo como medida precautoria se recomendaron, una veda (de 22 días) y 19 suspensiones preventivas (de 2 días), protegiéndose 22 áreas diferentes en 80 días.
+
+
 ## DINÁMICA POBLACIONAL BASADA EN CRUCEROS
 
 ### Evaluación hidroacústica del reclutamiento de la anchoveta en la XV, I y II Regiones (RECLAN)
 
-Se presentaron los resultados de tamaño y distribución del stock de anchoveta estimado en cruceros de evaluación directa realizadas entre los años 1996-2002 y 2007-2016 en la zona comprendida desde el límite norte de Chile hasta la latitud 24°40´S hasta una distancia de 20 millas náuticas de la costa. Los cruceros de prospección de tipo ecosistémico se han desarrollado a bordo del BI Abate Molina (Figura 8), contándose además con la participación de una embarcación artesanal de bajo calado, que opera en el sector más costero comprendido entre las latitudes 21° y 22°S. El BI Abate Molina está equipado con un sistema acústico marca Simrad EK60 con transductores de frecuencias de 18, 38, 120 y 200 kHz, y la lancha artesanal con un sistema EK60 con un transductor de 38 kHz.  Ambos sistemas son calibrados previos al inicio del estudio según las recomendaciones de su fabricante.
+Se presentaron los resultados de tamaño y distribución del stock de anchoveta estimado en cruceros de evaluación directa realizadas entre los años 1996-2002 y 2007-2016 en la zona comprendida desde el límite norte de Chile hasta la latitud 24°40´S hasta una distancia de 20 millas náuticas de la costa. Los cruceros de prospección de tipo ecosistémico se han desarrollado a bordo del BI Abate Molina (Figura \ref{fig10_1}), contándose además con la participación de una embarcación artesanal de bajo calado, que opera en el sector más costero comprendido entre las latitudes 21° y 22°S. El BI Abate Molina está equipado con un sistema acústico marca Simrad EK60 con transductores de frecuencias de 18, 38, 120 y 200 kHz, y la lancha artesanal con un sistema EK60 con un transductor de 38 kHz.  Ambos sistemas son calibrados previos al inicio del estudio según las recomendaciones de su fabricante.
 
-En la Figura 9a se muestra el plan de muestreo del crucero, este ha consistido en una red de 40 transectas perpendiculares a la costa separadas por 10 millas náuticas entre cada una y muestreo dirigido al sector más costero mediante una lancha pesquera artesanal.  Mientras se desarrollan las transectas de muestreo acústico, se realizan lances de pesca de identificación con una red de mediagua en el BI Abate Molina y red de cerco en la nave artesanal. Además del muestreo acústico, se efectúan otras actividades asociadas a muestreos biológicos de los lances de pesca de identificación, muestreo oceanográfico y muestreo de fito y zooplancton (Figura 10).  Los muestreos oceanográficos cada dos transectas en estaciones realizadas a 1, 5, 10 y 20 millas náuticas.
+![Buque de investigación Abate Molina.\label{fig10_1}](Figures/fig10_1.png)
 
-Los datos acústicos son grabados en formato .raw y procesados mediante el software Echoview(R). El análisis de la información se realiza estratificando el área prospectada de acuerdo a la composición de la estructura de tallas observada en los lances de pesca (Figura 11), la relación TS = 20,89 x Log (L) - 74,548 y la relación longitud peso estimada para cada crucero.
+En la Figura \ref{fig10_2} se muestra el plan de muestreo del crucero, este ha consistido en una red de 40 transectas perpendiculares a la costa separadas por 10 millas náuticas entre cada una y muestreo dirigido al sector más costero mediante una lancha pesquera artesanal.  Mientras se desarrollan las transectas de muestreo acústico, se realizan lances de pesca de identificación con una red de mediagua en el BI Abate Molina y red de cerco en la nave artesanal. Además del muestreo acústico, se efectúan otras actividades asociadas a muestreos biológicos de los lances de pesca de identificación, muestreo oceanográfico y muestreo de fito y zooplancton (Figura \ref{fig10_3}).  Los muestreos oceanográficos cada dos transectas en estaciones realizadas a 1, 5, 10 y 20 millas náuticas.
+
+![a) Plan de muestreo acústico y, b) Lances de pesca de identificación.\label{fig10_2}](Figures/fig10_2.png)
+
+![Actividades realizadas a bordo del BI Abate Molina.\label{fig10_3}](Figures/fig10_3.png)
+
+Los datos acústicos son grabados en formato .raw y procesados mediante el software Echoview(R). El análisis de la información se realiza estratificando el área prospectada de acuerdo a la composición de la estructura de tallas observada en los lances de pesca (Figura \ref{fig10_4}), la relación TS = 20,89 x Log (L) - 74,548 y la relación longitud peso estimada para cada crucero.
 
 \begin{align*}
 \hat{A}_k=A\hat{C}_{nk}\hat{R}_k \\
@@ -136,11 +197,17 @@ Los datos acústicos son grabados en formato .raw y procesados mediante el softwa
 
 siendo: $A_T$ la abundancia total, $A_k$ la abundancia a la talla $k$ (N°), A el área de distribución del recurso en el sector (mn2), $C_{nk}$ el coeficiente de ecointegración a la talla, $W_{k}$ el  peso medio a la talla, $B_t$ la biomasa total, $B_k$ biomasa a la talla $k$ y $R_k$ el estimador de la densidad acústica a la talla $k$ (SA).
 
-Los resultados se entregan para cada estrato (Figura 12) y en ellos se incorporan la fracción de reclutas, el área de cada estrato, la densidad promedio y el aporte de cada estrato al estimado total de la zona prospectada.
+![Esquema de estratificación por estructura de tallas.\label{fig10_4}](Figures/fig10_4.png){ width=60% }
 
-La densidad acústica promedio se estima mediante el uso del método geoestadístico intrínseco, metodología que considera, a través de la estimación de un variograma, de la distribución espacial de los datos y su grado de correlación. La distribución espacial de la anchoveta se estima a partir de las densidades locales e interpoladas mediante el ponderador del inverso de la distancia al cuadrado (Figura 13).
+Los resultados se entregan para cada estrato (Figura \ref{fig10_5}) y en ellos se incorporan la fracción de reclutas, el área de cada estrato, la densidad promedio y el aporte de cada estrato al estimado total de la zona prospectada.
+
+La densidad acústica promedio se estima mediante el uso del método geoestadístico intrínseco, metodología que considera, a través de la estimación de un variograma, de la distribución espacial de los datos y su grado de correlación. La distribución espacial de la anchoveta se estima a partir de las densidades locales e interpoladas mediante el ponderador del inverso de la distancia al cuadrado (Figura \ref{fig10_6}).
+
+![Esquema de entrega de resultados.\label{fig10_5}](Figures/fig10_5.png)
 
 Los resultados de la distribución muestran una disminución del área de distribución efectiva del recurso a partir del año 2011, asociado a una concentración más costera de la anchoveta en relación con la observada en la década anterior y es concordante con una distribución asociada a un periodo cálido. Los aspectos que podrían mejorar los resultados de este estudio, es efectuar mediciones de fuerza de blanco y disponer de embarcaciones de bajo calado, lo que permitiría incorporar pequeñas bahías y caletas al área de estudio.
+
+![Distribución espacial de la anchoveta según Crucero.\label{fig10_6}](Figures/fig10_6.png)
 
 ### Método de Producción de Huevos (MPH) en el norte de Chile
 
@@ -156,10 +223,17 @@ Con el propósito de destacar la estabilidad en la dinámica local asociada a los 
 
 Finalmente se describió la variación temporal y espacial de la abundancia de huevos de anchoveta en tres estaciones de monitoreo en la zona norte de Chile durante el desarrollo EN 2015-16 y se destacó la detección de cambios en la distribución temporal y espacial de la abundancia de huevos empleando como parámetros de referencia (Series Mensuales de Referencia) la distribución promedio mensual y la proporción de huevos en las tres estaciones considerando solo los periodos neutros. En este contexto, la distribución mensual de huevos (SMR) en las estaciones de monitoreo se ajustó al patrón de corrientes descrito para zona de estudio.
 
+![Estimación de la biomasa desovante para la región Sur de Perú.\label{fig10_7}](Figures/fig10_7.png)
+
 Los cambios estuvieron dados por la detección de importantes pulsos reproductivos en los meses de verano (diciembre y febrero) y mayores abundancias de huevos hacia las estaciones ubicadas en el centro y sur de la zona de estudio, acorde a lo descrito en la  literatura. Adicionalmente, estas observaciones concordaron con distribución de huevos esperada en base a los resultados derivados del análisis discriminante, el que considero como variables explicativas de la distribución de huevos la temperatura y la salinidad. En este contexto se hiso referencia a las observaciones de campo en el marco del proyecto MPH 2014, donde se detectaron anomalías de salinidad superficial pero no de temperatura y la distribución de huevos se ajustó a la descrita por el modelo. 
 
 La señal anual de SMR concordó con la señal de los índices gonadosomaticos (IGS) por lo que el monitoreo mensual de huevos recogería adecuadamente la señal anual del proceso reproductivo debido a la ubicación de las estaciones de monitoreo (en los CAB). Adicionalmente, la señal del proceso reproductivo de la anchoveta presento sincronía con la observada en otros componentes del ecosistema (zooplancton).
 Se plantea la importancia del monitoreo permanente de las condiciones ambientales y sus consecuencias biológicas en los CAB, así como la promoción de estas estas zonas como sitios prioritarios para la conservación de los recursos hidrobiológicos.
+
+Se plantea la importancia del monitoreo permanente de las condiciones ambientales y sus consecuencias biológicas en los CAB, así como la promoción de estas estas zonas como sitios prioritarios para la conservación de los recursos hidrobiológicos.
+
+Respecto a la distribución de cardúmenes desovantes de anchoveta en el sur del Perú, se observó en los cruceros de investigación realizados en primavera, la presencia de dichos cardúmenes en la Región sur del Perú, ubicados principalmente en la zona entre Ilo y Morro Sama en los años 2013, 2015 y 2017. En el año 2016, estos cardúmenes se ubicaron principalmente frente a San Juan (Figura \ref{fig10_7}).
+
 
 ### Estimación acústica de la biomasa de anchoveta en el sur de Perú
 
@@ -175,7 +249,7 @@ El rango inter-cuartílico de los valores estimados durante todo este periodo fue
 
 ### Edad y Crecimiento
 
-La información referida a edad y crecimiento de la anchoveta del stock sur Perú-norte Chile da cuenta, para la fracción del stock del sur de Perú, de estimaciones de parámetros de crecimiento basados en la lectura de edad en años. Estos resultados muestran un crecimiento rápido (K=0,8) con una edad máxima de 3 años. Por el contrario, para la fracción del stock del norte de Chile, la validación y el análisis de la edad en días, muestra parámetros de crecimientos que indican un crecimiento muy rápido (K=1,09) edad máxima probable de 2 años (Tabla 2, Figura \ref{fig15}).
+La información referida a edad y crecimiento de la anchoveta del stock sur Perú-norte Chile da cuenta, para la fracción del stock del sur de Perú, de estimaciones de parámetros de crecimiento basados en la lectura de edad en años. Estos resultados muestran un crecimiento rápido (K=0,8) con una edad máxima de 3 años. Por el contrario, para la fracción del stock del norte de Chile, la validación y el análisis de la edad en días, muestra parámetros de crecimientos que indican un crecimiento muy rápido (K=1,09) edad máxima probable de 2 años (Cuadro 3).
 
 ```{r echo=FALSE, results = "asis"}
 listCrec = read.csv("ParamCrec.csv")
@@ -184,23 +258,23 @@ kable(x = listCrec, caption = "Parámetros de crecimiento von Bertalanffy convenc
 
 Estas diferencias hacen necesario trabajar en conjunto estudios que permitan replicar la validación de la edad, utilizando otolitos de la fracción del stock del sur del Perú, a partir del análisis de la microestructura de otolitos. Otro aspecto importante de revisar en conjunto es la determinación de unidades poblacionales, inicialmente a través de la aplicación de un estudio de morfometría de otolitos, con el propósito de determinar si existen diferencias significativas en la estructura de los stocks de Chile y Perú, en periodos fríos (NIÑA) y cálidos (NIÑO). Se siguiere realizar esta actividad durante el 2017, quedando la responsabilidad en los investigadores Carlos Goicochea (IMARPE) y Francisco Cerna (IFOP). En este mismo sentido IMARPE ofreció la posibilidad de replicar para los stocks de Perú, otras metodologías de determinación de unidades poblacionales, distintas de la morfometría, que estén siendo aplicadas en Chile. Para avanzar en esto IFOP compartió con IMARPE las metodologías de química de otolitos, análisis de parásitos.
 
-![Curvas que describen el crecimiento de anchoveta de a) sur de Perú,  que ajusta datos longitud total y edad en años con el modelo de von Bertalanffy convencional, y b) norte de Chile, que ajusta datos de longitud total y edad en días con el modelo de von Bertalanffy estacional.\label{fig15}|40x60,20%](Figures/fig16.png)
-
 ### Aspectos reproductivos
 
-Los procesos reproductivos de la anchoveta en el sur del Perú son monitoreados a partir de dos variables: la actividad reproductiva (proporción de hembras con ovocitos maduros y desovantes) y el índice gonadosomático (peso de la gónada en relación al peso eviscerado de los individuos). A partir de estas variables se ha determinado que la mayor actividad reproductiva se presenta durante agosto, setiembre y octubre y que los meses de menor actividad reproductiva corresponden a  abril y mayo. Así mismo, se ha podido establecer que la actividad reproductiva se inicia cuando el porcentaje de hembras con ovocitos maduros y desovantes supera el 80% o cuando el índice gonadosomático supera el valor de 5. Durante los últimos años se ha podido observar procesos reproductivos con una intensidad superior al promedio (inviernos de 2009, 2010 y 2013) y así como procesos con una intensidad menor al promedio (inviernos 2011 y 2012). Del mismo modo también se podido observar que en el 2012 y 2013 se evidenció el proceso reproductivo de verano (Figura \ref{fig16}).
+\pagebreak
+
+Los procesos reproductivos de la anchoveta en el sur del Perú son monitoreados a partir de dos variables: la actividad reproductiva (proporción de hembras con ovocitos maduros y desovantes) y el índice gonadosomático (peso de la gónada en relación al peso eviscerado de los individuos). A partir de estas variables se ha determinado que la mayor actividad reproductiva se presenta durante agosto, setiembre y octubre y que los meses de menor actividad reproductiva corresponden a  abril y mayo. Así mismo, se ha podido establecer que la actividad reproductiva se inicia cuando el porcentaje de hembras con ovocitos maduros y desovantes supera el 80\% o cuando el índice gonadosomático supera el valor de 5. Durante los últimos años se ha podido observar procesos reproductivos con una intensidad superior al promedio (inviernos de 2009, 2010 y 2013) y así como procesos con una intensidad menor al promedio (inviernos 2011 y 2012). Del mismo modo también se podido observar que en el 2012 y 2013 se evidenció el proceso reproductivo de verano (Figura \ref{fig16}).
 
 ![Serie mensual del índice gonadosomático (IGS) estimado para la anchoveta del sur de Perú.\label{fig16}](Figures/fig17.png)
 
-En el norte de Chile el proceso reproductivo de anchoveta presenta un patrón estacional con una máxima actividad entre agosto y octubre y una mínima actividad en abril. Este patrón puede adelantarse o retrasarse por el impacto de condiciones ambientales favorables o desfavorables. En caso de presentarse el evento El Niño (condiciones cálidas) se registra una menor intensidad y un retraso en el comienzo de la actividad reproductiva (Figura \ref{17}).
+En el norte de Chile el proceso reproductivo de anchoveta presenta un patrón estacional con una máxima actividad entre agosto y octubre y una mínima actividad en abril. Este patrón puede adelantarse o retrasarse por el impacto de condiciones ambientales favorables o desfavorables. En caso de presentarse el evento El Niño (condiciones cálidas) se registra una menor intensidad y un retraso en el comienzo de la actividad reproductiva (Figura \ref{fig17}).
 
 ![Serie mensual del índice gonadosomático estimado para la anchoveta del norte de Chile.\label{fig17}](Figures/fig18.png)
 
 ### Mortalidad natural
 
-En el sur del Perú históricamente se ha utilizado un valor de mortalidad natural único para todos los grupos de edad y periodos de tiempo igual a 0.8/año. Desde el 2012 se ha sugerido el uso de valores diferenciados por talla y escenario ambiental. Esta sugerencia proviene de Oliveros-Ramos (2011).
+En el sur del Perú históricamente se ha utilizado un valor de mortalidad natural (M) único para todos los grupos de edad y periodos de tiempo igual a 0.8 por año. Desde el 2012 se ha sugerido el uso de valores diferenciados por talla y escenario ambiental. Esta sugerencia proviene de Oliveros-Ramos (2011).
 
-En el norte de Chile los últimos estudios dan un valor de M=2.2  (año$^{-1}$) para la tasa de  mortalidad natural (M), valor usado como constante para todas las edades y años. Este valor fue calculado en base a los diferentes modelos bio-analógicos existentes y para cada semestre se utiliza el valor de M=1.1 (semestre$^{-1}$).
+En el norte de Chile los últimos estudios dan un valor de 2.2 anual para la tasa de  mortalidad natural (M), valor usado como constante para todas las edades y años. Este valor fue calculado en base a los diferentes modelos bio-analógicos existentes y para cada semestre se utiliza el valor de 1.1 por semestre.
 
 ### Unidades poblacionales
 
@@ -208,52 +282,7 @@ Otro aspecto importante de revisar en conjunto es la determinación de unidades p
 
 ## MODELOS DE EVALUACION DEL STOCK
 
-```{r message = FALSE, warning = FALSE, echo = FALSE}
-library(r4ss)
-source("getSummaryOne_fun.R")
-```
-
-La siguiente evaluación de stock de Anchoveta del Sur del Perú y Norte de Chile fue actualizada hasta diciembre del 2017. Se emplearon modelos de evaluación con dos enfoques: biomasa dinámica y modelo integrado estructurado a la edad (plataforma Stock Synthesis). 
-
-La siguiente Tabla muestra los datos empleados para ambos enfoques de modelos:
-
-\begin{table}
-\centering
-\caption{Descripción de los datos empleados en los modelos de evaluación.}
-\label{table-paramvalues}
-\begin{tabular}{ p{4cm} p{6cm} }
-\hline \\ [-1.5ex]
-\textbf{Datos} & \textbf{Descripción} \\ [1ex]
-\hline \\ [-1.5ex]
-Fish\underline{\space}Per & Datos provenientes de la flota pesquera que opera en aguas peruanas. \\ [1ex]
-Fish\underline{\space}Chi & Datos provenientes de la flota pesquera que opera en aguas chilenas.  \\ [1ex]
-SurAdu\underline{\space}Per & Datos provenientes de las prospecciones científicas realizadas por Perú. Solo considera la porción adulta del stock.  \\ [1ex]
-SurJuv\underline{\space}Per & Datos provenientes de las prospecciones científicas realizadas por Perú. Solo considera la porción juvenil del stock. \\ [1ex]
-SurJuv\underline{\space}Chi & Datos provenientes de las prospecciones científicas realizadas por Chile. Solo considera la porción juvenil del stock. \\ [1ex]
-SurBio\underline{\space}Chi & Datos provenientes de las prospecciones científicas realizadas por Chile. Solo considera la porción adulta del stock. \\ [1ex]
-\hline
-\end{tabular}
-\end{table}
-
-```{r fig.cap = "Desembarques realizados por la flota peruana y chilena desde 1984.", echo = FALSE, message = FALSE, results = 'hide', fig.height=3.5, eval = FALSE}
-par(mar = c(2,4,1,1))
-SSplotCatch(replist = tmp2, subplots = 11, labels=c("Harvest rate/Year",  #1
-             "Continuous F",              #2
-             "Desembarques",                  #3
-             "Total catch",               #4
-             "Predicted discards",        #5
-             "Discard fraction",          #6  # need to add by weight or by length
-             "(t)",                      #7
-             "(numbers x1000)",           #8
-             "Observed and expected",     #9
-""), xlab = "")
-```
-
-```{r fig.cap = "Estructura de tallas de las capturas de la flota peruana y chilena desde 1984.", echo = FALSE, message = FALSE, results = 'hide', out.extra='', fig.pos = 'h', eval = FALSE}
-SSplotComps(replist = tmp2, datonly = T, bub = T, subplots = 24, labels = c("Longitud total (cm)", "Age (yr)", "", "Observed sample size",
-  "Effective sample size", "Proportion", "cm", "Frequency", "Weight", "Length",
-  "(mt)", "(numbers x1000)", "Stdev (Age) (yr)", "Conditional AAL plot, "))
-```
+La evaluación de stock de Anchoveta del Sur del Perú y Norte de Chile fue actualizada hasta diciembre del 2017. Se emplearon dos enfoques: biomasa dinámica (MBD) y modelo integrado estructurado a la edad (plataforma Stock Synthesis SS3). Para el caso de los modelos de biomasa dinámica, se emplearon los modelos desarrollados por Martel y Froese, y Zhou, además del SS3 con un enfoque MBD (sin datos de captura a la talla).
 
 ### Modelos de biomasa dinámica
 
@@ -263,20 +292,45 @@ La información utilizada para la evaluación consistió en las capturas de anchove
 
 Se aplicó el método de Martell y Froese (2012) para estimar la serie biomasa, la tasa intrínseca de crecimiento poblacional, la capacidad de carga y el punto biológicos de referencia RMS. Para este modelo solo se utilizaron las capturas del sur del Perú (16°S - 18°S) y norte de Chile (XV- II Regiones) del periodo 1984 - 2015. Como valores de entrada para la tasa intrínseca de crecimiento (r) se utilizaron valores a priori con distribución uniforme entre 0.1 - 1.2 y para la capacidad de carga (K) valores que oscilaron entre la máxima captura y 10 veces la máxima captura. El proceso de estimación utilizó 3 mil simulaciones. 
 
-![Estimaciones de la biomasa total para la anchoveta del sur de Perú y norte de Chile a través de la aplicación del método de Zhou et al. (2013) para el período entre 1983 y 2015. La línea negra representa el cuantil del 50% de la distribución de la biomasa. La línea segmentada roja representa el RMS y los puntos azules las capturas observadas.\label{fig18}](Figures/fig19.png)
+![Estimaciones de la biomasa total para la anchoveta del sur de Perú y norte de Chile a través de la aplicación del método de Zhou et al. (2013) para el período entre 1983 y 2015. La línea negra representa el cuantil del 50% de la distribución de la biomasa. La línea segmentada roja representa el RMS y los puntos azules las capturas observadas.\label{fig18}](Figures/fig19.png){ width=90% }
 
 #### Zhou
 
-Se aplicó el método de Zhou et al. (2013) que utiliza sólo las capturas para estimar la biomasa, la tasa intrínseca  de crecimiento poblacional, nivel de reducción y puntos biológicos de referencia RMS y FRMS. La información utilizada para estimar los niveles poblacionales para el stock de anchoveta del sur del Perú y norte de Chile (XV-II Regiones) corresponde a los desembarques oficiales entre 1984 y 2015. La prior para la tasa de intrínseca crecimiento (r), fue definida en un rango de 0.57 - 0.89. Como valores para el prior de K se utilizó el criterio de la captura máxima observada como límite inferior, y un amplificación por 50, como límite superior de K, esto es de 2,8 a 139 millones de toneladas respectivamente. Como intervalo para los valores de la reducción del stock, se tomaron valores entre 0.10 a 0.80 a intervalos de 0.05. Los resultados son mostrados en la Tabla 3 y Figura \ref{fig18}.
+Se aplicó el método de Zhou et al. (2013) que utiliza sólo las capturas para estimar la biomasa, la tasa intrínseca  de crecimiento poblacional, nivel de reducción y puntos biológicos de referencia RMS y FRMS. La información utilizada para estimar los niveles poblacionales para el stock de anchoveta del sur del Perú y norte de Chile (XV-II Regiones) corresponde a los desembarques oficiales entre 1984 y 2015. La prior para la tasa de intrínseca crecimiento (r), fue definida en un rango de 0.57 - 0.89. Como valores para el prior de K se utilizó el criterio de la captura máxima observada como límite inferior, y un amplificación por 50, como límite superior de K, esto es de 2,8 a 139 millones de toneladas respectivamente. Como intervalo para los valores de la reducción del stock, se tomaron valores entre 0.10 a 0.80 a intervalos de 0.05. Los resultados son mostrados en el Cuadro 4 y Figura \ref{fig18}.
 
 ```{r echo=FALSE, results = "asis"}
 listParBiom = read.csv("ParmBiomDin.csv")
 kable(x = listParBiom, caption = "Resumen de los puntos biológicos de referencia para el stock de anchoveta del sur del Perú y norte de Chile (XV-II Regiones) utilizando el método de Zhou et. al. (2013).")
 ```
 
-### Stock Synthesis
+#### Stock Synthesis - Enfoque MBD
+
+Se empleó la plataforma de modelado Stock Synthesis (v3.24u, Methot Jr. & Wetzel, 2013) para modelar el stock de anchoveta del sur del Perú y norte de Chile (XV-II Regiones) entre los años 1983 y 2015. Esta plataforma permite incluir una gran cantidad de datos de diferentes fuentes, sin embargo, como primer ejercicio se hizo una aproximación de un modelo de producción bajo las siguientes asunciones: 1) estructurado por edad con valores arbitrarios para parámetros biológicos, 2) todas las edades seleccionadas, 3) todas las edades maduras y 4) sin desviaciones de reclutamiento. Se estimaron dos grupos de parámetros: reclutamiento virginal y capturabilidad para los diferentes índices. Los datos utilizados fueron capturas anuales y tres índices de abundancia: reclutamiento de Chile (RECLAN), método de producción de huevos de Chile (MPH) y estimados de biomasa acústicos de Perú en los meses de verano. Se emplearon las siguientes configuraciones:
+
+```{r echo=FALSE, results = "asis"}
+listSSMBD = read.csv("ModsSSBiomDinam.csv")
+kable(x = listSSMBD, caption = "Configuraciones de los diferentes modelos de biomasa dinámica propuestos para evaluar el stock sur Perú-norte Chile.")
+```
+
+Los resultados de los parámetros y la serie de biomasa obtenidos por cada modelo se muestran en el Cuadro 6 y Figura \ref{fig19_1} respectivamente. Los resultados evidencian que los parámetros varían de acuerdo al modelo utilizado, con valores de tasa intrínseca de crecimiento r entre 0.44 - 0.59 y de capacidad de carga K entre 12.7 - 7.8  millones t. Las tendencias en las series de biomasa son similares pero difieren en magnitud, con biomasas al 2015 que varían entre 5.1 - 2.6 millones t. 
+
+```{r echo=FALSE, results = "asis"}
+listSSMBD = read.csv("ResultsBiomDinam.csv")
+kable(x = listSSMBD, caption = "Resumen de los parámetros y puntos biológicos de referencia para el stock de anchoveta del sur del Perú y norte de Chile (XV-II Regiones) utilizando diversos métodos.")
+```
+
+![Series de biomasa estimadas por modelo.\label{fig19_1}](Figures/fig20.png)
+
+#### Stock Synthesis - Modelo estructurado por edades
 
 Se implementaron tres modelos basados en tres hipótesis del stock, las cuales difieren principalmente en los parámetros de crecimiento individual y el número de desoves y reclutamientos al año. 
+
+El Cuadro 7 muestra los datos empleados para ambos enfoques de modelos:
+
+```{r echo=FALSE, results = "asis"}
+exData = read.csv("ExplainData.csv")
+kable(x = exData, caption = "Descripción de los datos empleados en los modelos de evaluación.")
+```
 
 Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). Los datos empleados se muestran en Figura \ref{fig19}.
 
@@ -316,6 +370,10 @@ donde $\beta_{1,y,f}$ es la talla donde la selectividad es 50\% para la pesquerí
 
 ### Modelo B
 
+```{r message = FALSE, warning = FALSE, echo = FALSE, results = 'hide'}
+tmp2 = SS_output(dir = "models/mod_B")
+```
+
 ```{r echo=FALSE, results = "asis"}
 xa = tmp2$estimated_non_dev_parameters
 xa$Parametro = rownames(xa)
@@ -330,6 +388,8 @@ getSummaryOne(pathmod = "models", modelName = "mod_B")
 
 
 ### Modelo C
+
+\pagebreak
 
 ```{r fig.cap = "Serie temporal de datos empleados por los modelos de evaluación.", echo = FALSE, message = FALSE, results = 'hide'}
 tmp3 = SS_output(dir = "models/mod_C")
@@ -363,9 +423,10 @@ Las principales incertidumbres estuvieron en los parámetros de crecimiento indiv
 
 Se requiere estandarizar los formatos de datos y las metodologías empleadas para la estimación de variables y parámetros usados en la evaluación del stock de anchoveta del sur de Perú y norte de Chile.
 
-Existen similitudes y diferencias en las variables y parámetros de la historia de vida de la anchoveta estimados y utilizados por cada Instituto. Dentro de las similitudes se puede mencionar la composición por tallas de los desembarques y el proceso reproductivo (máxima actividad reproductiva en invierno y mínima en otoño), mientras que dentro de las diferencias se puede mencionar al crecimiento (KPerú ~0.84/año y máxima edad~3 años, KChile ~1.09 y máxima edad ~2años) y la mortalidad natural (MPerú ~0.8/año, MChile ~2.2/año).
+Existen similitudes y diferencias en las variables y parámetros de la historia de vida de la anchoveta estimados y utilizados por cada Instituto. Dentro de las similitudes se puede mencionar la composición por tallas de los desembarques y el proceso reproductivo (máxima actividad reproductiva en invierno y mínima en otoño), mientras que dentro de las diferencias se puede mencionar al crecimiento (KPerú~0.84/año y máxima edad~3 años, KChile~1.09 y máxima edad~2años) y la mortalidad natural (MPerú~0.8/año, MChile~2.2/año).
 
-Los modelos implementados en la plataforma Stock Synthesis mostraron que las biomasa total del stock para el año 2017 estuvo alrededor de 2 millones de toneladas. Las mortalidades por pesca han ido disminuyendo desde el año 2014, siendo estimadas para el año 2017 en 0.27. 
+Los resultados preliminares de las evaluaciones por los modelos de biomasa dinámica muestran un nivel de biomasa actual (al 2015) entre 5.1 - 2.6 millones lo que implica un nivel de reducción (Bactual/B0) entre 34 - 56%. Así mismo se observa que la tendencia de la biomasa es estable desde 1997-1998. 
+
 
 ## RECOMENDACIONES
 
