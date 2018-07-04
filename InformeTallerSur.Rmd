@@ -278,7 +278,7 @@ kable(x = listParBiom, caption = "Resumen de los puntos biológicos de referencia
 
 Se implementaron tres modelos basados en tres hipótesis del stock, las cuales difieren principalmente en los parámetros de crecimiento individual y el número de desoves y reclutamientos al año. 
 
-Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). La selectividad se modeló separadamente para ambas flotas utilizando una curva logística. Los datos empleados se muestran en Figura \ref{fig19}.
+Para la evaluación se empleó la plataforma Stock Synthesis (SS versión 3.24s) e incluye datos de la pesquería y de prospecciones científicas desde 1984 hasta el 2017. Los modelos presentados estan a resolución semetral (Semestre 1: Enero a Junio, Semestre 2: Julio a Diciembre). Las capturas y muestreos biométricos fueron separados en dos flotas: la flota que opera sobre la porción del stock en aguas peruanas (Flota peruana) y la flota que opera sobre la porción del stock en aguas chilenas (Flota chilena). Los datos empleados se muestran en Figura \ref{fig19}.
 
 ```{r fig.cap = "\\label{fig19}Serie temporal de datos empleados por los modelos de evaluación.", echo = FALSE, message = FALSE, results = 'hide'}
 tmp2 = SS_output(dir = "models/mod_B")
@@ -300,17 +300,16 @@ Modelo C & Se asume un periodo de desove y dos reclutamientos al año. K = 0.85. 
 \end{tabular}
 \end{table}
 
+El reclutamiento fue modelado mediante la relación stock-reclutamiento de Ricker, asumiendo efectos de denso-dependencia reportado para esta especie. Esta relación utiliza tres principales parámetros: $R_0$ (reclutamiento virginal), $h$ (stepness) y $\sigma R$. El stepness fue fijado en 2 para todos los modelos, y se dejó estimar el reclutamiento virginal y $\sigma R$. 
+
 La capturabilidad para cada índice de abundancia fue estimado y asumido a ser directamente proporcional a la biomasa de la porción de la población correspondiente. 
 
-Se asumió una selectividad de tipo logística:
+Se asumió una selectividad de tipo logística para la pesquería que opera en Perú y Chile:
 \begin{align*}
   S_{y,f} = \frac{1}{1+ e^{-ln(19)(L'_l-\beta_{1,y,f})/\beta_{2,y,f}}}
 \end{align*}
 
-donde $\beta_{1,y,f}$ es la talla donde la selectividad es 50\% para la pesquería $f$ y el año $y$, y $\beta_{2,y,f}$ es la diferencia entre la talla donde la selectividad es 95\% y 50\%. 
-
-### 
-
+donde $\beta_{1,y,f}$ es la talla donde la selectividad es 50\% para la pesquería $f$ y el año $y$, y $\beta_{2,y,f}$ es la diferencia entre la talla donde la selectividad es 95\% y 50\%. Se asumió que la selectividad es variante en el tiempo, por lo que se establecieron bloques de años donde en cada uno de ellos se estimó diferentes parámetros de la ecuación logística. Los bloques de años para la pesquería peruana son: 1984-1988, 1989-1992, 1994-1995, 1996-1997, 1998-1999, 2001-2007, 2008-2013, 2014-2017. Los bloques de años para la pesquería chilena son: 1984-1986, 1987-1990, 1991-1997, 1998-2000, 2001-2008, 2009-2014, 2015-2017.
 
 ### Modelo A
 
@@ -350,25 +349,19 @@ getSummaryOne(pathmod = "models", modelName = "mod_C")
 
 ## Biomasa desovante y reclutamiento
 
-El reclutamiento fue usando la relación stock-reclutamiento de Ricker con un sigma R = 0.75. El stepness fue estimado .... (mas detalles sobre las salidas de ssb y reclutamiento)
-
-Anexar figuras time series de salidas de ssb y reclutas y algunas tablas
+La biomasa desovante ha mostrado una tendencia a aumentar desde el 2014. Por otro lado, las desviaciones de reclutamiento para los últimos dos años se han mantenido alrededor de 0. 
 
 ## Biomasa del stock
 
-Estado del stock, principalmente para el ultimo año....
-
-Anexas figuras time series de total biomass..
+La biomasa del stock muestra una tendencia ascendentes desde el año 2014.
 
 ## Problemas no resuelvos y principales incertidumbres
 
-Podemos mencionar lo del crecimiento individual, resolucion temporal etc...
-
+Las principales incertidumbres estuvieron en los parámetros de crecimiento individual, mortalidad natural y frecuencia de desove.
 
 ## CONCLUSIONES
 
 Se requiere estandarizar los formatos de datos y las metodologías empleadas para la estimación de variables y parámetros usados en la evaluación del stock de anchoveta del sur de Perú y norte de Chile.
-
 
 Existen similitudes y diferencias en las variables y parámetros de la historia de vida de la anchoveta estimados y utilizados por cada Instituto. Dentro de las similitudes se puede mencionar la composición por tallas de los desembarques y el proceso reproductivo (máxima actividad reproductiva en invierno y mínima en otoño), mientras que dentro de las diferencias se puede mencionar al crecimiento (KPerú ~0.84/año y máxima edad~3 años, KChile ~1.09 y máxima edad ~2años) y la mortalidad natural (MPerú ~0.8/año, MChile ~2.2/año).
 
