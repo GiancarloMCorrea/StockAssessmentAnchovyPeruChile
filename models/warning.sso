@@ -1,0 +1,6 @@
+#V3.30.08.04-safe;_2017_11_08;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_11.6
+Wed Jul 25 12:09:32 2018
+
+logical age at settlement calculated to be: 1  for settle_time 2.  Does not match read value of 0 are you sure? 
+ N warnings: 1
+Number_of_active_parameters_on_or_near_bounds: 3
