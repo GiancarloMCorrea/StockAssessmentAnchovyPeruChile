@@ -1,0 +1,415 @@
+#V3.24U
+#C 2017 Anchovy control file
+#_data_and_control_files: ancho.dat // ancho.ctl
+#_SS-V3.24U-safe;_08/29/2014;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_11.2_Win64
+1  #_N_Growth_Patterns
+1 #_N_Morphs_Within_GrowthPattern 
+#_Cond 1 #_Morph_between/within_stdev_ratio (no read if N_morphs=1)
+#_Cond  1 #vector_Morphdist_(-1_in_first_val_gives_normal_approx)
+#
+2 #  number of recruitment assignments (overrides GP*area*seas parameter values) 
+0 # recruitment interaction requested
+#GP seas area for each recruitment assignment
+ 1 1 1
+ 1 2 1
+#
+#_Cond 0 # N_movement_definitions goes here if N_areas > 1
+#_Cond 1.0 # first age that moves (real age at begin of season, not integer) also cond on do_migration>0
+#_Cond 1 1 1 2 4 10 # example move definition for seas=1, morph=1, source=1 dest=2, age1=4, age2=10
+#
+2 #_Nblock_Patterns
+ 7 8 #_blocks_per_pattern 
+# begin and end years of blocks
+ 1984 1986 1987 1990 1991 1997 1998 2000 2001 2008 2009 2014 2015 2017
+ 1984 1988 1989 1992 1994 1995 1996 1997 1998 1999 2001 2007 2008 2013 2014 2017
+#
+0.5 #_fracfemale 
+0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate
+  #_no additional input for selected M option; read 1P per morph
+1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_speciific_K; 4=not implemented
+0.5 #_Growth_Age_for_L1
+999 #_Growth_Age_for_L2 (999 to use as Linf)
+0 #_SD_add_to_LAA (set to 0.1 for SS2 V1.x compatibility)
+0 #_CV_Growth_Pattern:  0 CV=f(LAA); 1 CV=F(A); 2 SD=F(LAA); 3 SD=F(A); 4 logSD=F(A)
+1 #_maturity_option:  1=length logistic; 2=age logistic; 3=read age-maturity by GP; 4=read age-fecundity by GP; 5=read fec and wt from wtatage.ss; 6=read length-maturity by GP
+#_placeholder for empirical age- or length- maturity by growth pattern (female only)
+1 #_First_Mature_Age
+1 #_fecundity option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
+0 #_hermaphroditism option:  0=none; 1=age-specific fxn
+1 #_parameter_offset_approach (1=none, 2= M, G, CV_G as offset from female-GP1, 3=like SS2 V1.x)
+2 #_env/block/dev_adjust_method (1=standard; 2=logistic transform keeps in base parm bounds; 3=standard w/ no bound check)
+#
+#_growth_parms
+#_LO HI INIT PRIOR PR_type SD PHASE env-var use_dev dev_minyr dev_maxyr dev_stddev Block Block_Fxn
+ 1.1 2.5 1.6 1.98 3 0.6 -4 0 0 0 0 0 0 0 # NatM_p_1_Fem_GP_1
+ 1 9 5.7 6 -1 0.5 -1 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
+ 15 23 17.41 20 -1 99 -1 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
+ 0.8 2.5 1.65 1.19 -1 99 -1 0 0 0 0 0 0 0 # VonBert_K_Fem_GP_1
+ 0.03 0.46 0.13 0.1 -1 99 -2 0 0 0 0 0 0 0 # CV_young_Fem_GP_1
+ 0.03 0.46 0.08 0.1 -1 99 -2 0 0 0 0 0 0 0 # CV_old_Fem_GP_1
+ -3 3 5.1e-006 5.1e-006 -1 99 -5 0 0 0 0 0 0 0 # Wtlen_1_Fem
+ -3 3 3.074 3.074 -1 99 -5 0 0 0 0 0 0 0 # Wtlen_2_Fem
+ 10 14 11.5 11.5 -1 99 -5 0 0 0 0 0 0 0 # Mat50%_Fem
+ -3 3 -0.48 -0.48 -1 99 -5 0 0 0 0 0 0 0 # Mat_slope_Fem
+ -3 3 1 1 -1 99 -5 0 0 0 0 0 0 0 # Eggs/kg_inter_Fem
+ -3 3 0 0 -1 99 -5 0 0 0 0 0 0 0 # Eggs/kg_slope_wt_Fem
+ -3 3 1 1 -1 99 -3 0 0 0 0 0.5 0 0 # RecrDist_GP_1
+ -3 3 1 1 -1 99 -3 0 0 0 0 0.5 0 0 # RecrDist_Area_1
+ -3 3 0 1 -1 99 -3 0 0 0 0 0.5 0 0 # RecrDist_Seas_1
+ -3 3 -1 1 -1 99 -3 0 0 0 0 0.5 0 0 # RecrDist_Seas_2
+ -1 3 1 1 -1 99 -3 0 0 0 0 0.5 0 0 # CohortGrowDev
+#
+#_Cond 0  #custom_MG-env_setup (0/1)
+#_Cond -2 2 0 0 -1 99 -2 #_placeholder when no MG-environ parameters
+#
+#_Cond 0  #custom_MG-block_setup (0/1)
+#_Cond -2 2 0 0 -1 99 -2 #_placeholder when no MG-block parameters
+#_Cond No MG parm trends 
+#
+#_seasonal_effects_on_biology_parms
+ 0 0 0 0 0 0 0 0 0 0 #_femwtlen1,femwtlen2,mat1,mat2,fec1,fec2,Malewtlen1,malewtlen2,L1,K
+#_Cond -2 2 0 0 -1 99 -2 #_placeholder when no seasonal MG parameters
+#
+#_Cond -4 #_MGparm_Dev_Phase
+#
+#_Spawner-Recruitment
+2 #_SR_function: 2=Ricker; 3=std_B-H; 4=SCAA; 5=Hockey; 6=B-H_flattop; 7=survival_3Parm; 8=Shepard_3Parm
+#_LO HI INIT PRIOR PR_type SD PHASE
+ 10 50 13.53 15 -1 5 -1 # SR_LN(R0)
+ 0 4 1.9 0.8 -1 0.9 -1 # SR_Ricker
+ 0.1 0.9 0.32 0.5 -1 99 -1 # SR_sigmaR
+ -5 5 0 0 -1 99 -50 # SR_envlink
+ -5 5 0 0 -1 99 -50 # SR_R1_offset
+ 0 2 0 1 -1 99 -50 # SR_autocorr
+0 #_SR_env_link
+0 #_SR_env_target_0=none;1=devs;_2=R0;_3=steepness
+1 #do_recdev:  0=none; 1=devvector; 2=simple deviations
+1984 # first year of main recr_devs; early devs can preceed this era
+2017 # last year of main recr_devs; forecast devs start in following year
+3 #_recdev phase 
+0 # (0/1) to read 13 advanced options
+#_Cond 0 #_recdev_early_start (0=none; neg value makes relative to recdev_start)
+#_Cond -4 #_recdev_early_phase
+#_Cond 0 #_forecast_recruitment phase (incl. late recr) (0 value resets to maxphase+1)
+#_Cond 1 #_lambda for Fcast_recr_like occurring before endyr+1
+#_Cond 984 #_last_early_yr_nobias_adj_in_MPD
+#_Cond 1980 #_first_yr_fullbias_adj_in_MPD
+#_Cond 2017 #_last_yr_fullbias_adj_in_MPD
+#_Cond 2018 #_first_recent_yr_nobias_adj_in_MPD
+#_Cond 1 #_max_bias_adj_in_MPD (-1 to override ramp and set biasadj=1.0 for all estimated recdevs)
+#_Cond 0 #_period of cycles in recruitment (N parms read below)
+#_Cond -5 #min rec_dev
+#_Cond 5 #max rec_dev
+#_Cond 0 #_read_recdevs
+#_end of advanced SR options
+#
+#_placeholder for full parameter lines for recruitment cycles
+# read specified recr devs
+#_Yr Input_value
+#
+# all recruitment deviations
+#DisplayOnly 0.420843 # Main_RecrDev_1984
+#DisplayOnly -0.116341 # Main_RecrDev_1985
+#DisplayOnly 0.663887 # Main_RecrDev_1986
+#DisplayOnly 0.414494 # Main_RecrDev_1987
+#DisplayOnly -0.28135 # Main_RecrDev_1988
+#DisplayOnly -0.104836 # Main_RecrDev_1989
+#DisplayOnly -0.42491 # Main_RecrDev_1990
+#DisplayOnly -0.211696 # Main_RecrDev_1991
+#DisplayOnly 0.338246 # Main_RecrDev_1992
+#DisplayOnly 0.297822 # Main_RecrDev_1993
+#DisplayOnly -0.248006 # Main_RecrDev_1994
+#DisplayOnly -0.0415779 # Main_RecrDev_1995
+#DisplayOnly 0.352495 # Main_RecrDev_1996
+#DisplayOnly 0.297762 # Main_RecrDev_1997
+#DisplayOnly 0.197122 # Main_RecrDev_1998
+#DisplayOnly -0.4223 # Main_RecrDev_1999
+#DisplayOnly 0.108595 # Main_RecrDev_2000
+#DisplayOnly 0.105298 # Main_RecrDev_2001
+#DisplayOnly -0.0515822 # Main_RecrDev_2002
+#DisplayOnly 0.487371 # Main_RecrDev_2003
+#DisplayOnly 0.230966 # Main_RecrDev_2004
+#DisplayOnly -0.099308 # Main_RecrDev_2005
+#DisplayOnly -0.492166 # Main_RecrDev_2006
+#DisplayOnly -0.301521 # Main_RecrDev_2007
+#DisplayOnly -0.3879 # Main_RecrDev_2008
+#DisplayOnly 0.24512 # Main_RecrDev_2009
+#DisplayOnly -0.0884753 # Main_RecrDev_2010
+#DisplayOnly -0.558343 # Main_RecrDev_2011
+#DisplayOnly -0.396487 # Main_RecrDev_2012
+#DisplayOnly -0.8205 # Main_RecrDev_2013
+#DisplayOnly 0.102357 # Main_RecrDev_2014
+#DisplayOnly 0.193722 # Main_RecrDev_2015
+#DisplayOnly 0.493164 # Main_RecrDev_2016
+#DisplayOnly 0.0980341 # Main_RecrDev_2017
+#
+#Fishing Mortality info 
+0.2 # F ballpark for annual F (=Z-M) for specified year
+-1999 # F ballpark year (neg value to disable)
+2 # F_Method:  1=Pope; 2=instan. F; 3=hybrid (hybrid is recommended)
+5 # max F or harvest rate, depends on F_Method
+# no additional F input needed for Fmethod 1
+# if Fmethod=2; read overall start F value; overall phase; N detailed inputs to read
+# if Fmethod=3; read N iterations for tuning for Fmethod 3
+ 0 1 0 # overall start F value; overall phase; N detailed inputs to read
+#Fleet Year Seas F_value se phase (for detailed setup of F_Method=2)
+
+#
+#_initial_F_parms
+#_LO HI INIT PRIOR PR_type SD PHASE
+ 0.01 10 0 0.15 -1 99 -50 # InitF_1Fish_Chi
+ 0.01 10 0 0.15 -1 99 -50 # InitF_2Fish_Per
+
+# F rates for Fmethod=2
+# 0.000194956 F_fleet_1_YR_1984_s_1
+# 1.07438e-005 F_fleet_1_YR_1984_s_2
+# 0.0430029 F_fleet_1_YR_1985_s_1
+# 9.81047e-006 F_fleet_1_YR_1985_s_2
+# 0.236154 F_fleet_1_YR_1986_s_1
+# 1.20309 F_fleet_1_YR_1986_s_2
+# 0.197738 F_fleet_1_YR_1987_s_1
+# 0.0376472 F_fleet_1_YR_1987_s_2
+# 0.218118 F_fleet_1_YR_1988_s_1
+# 0.393503 F_fleet_1_YR_1988_s_2
+# 0.509487 F_fleet_1_YR_1989_s_1
+# 0.825473 F_fleet_1_YR_1989_s_2
+# 0.676457 F_fleet_1_YR_1990_s_1
+# 0.544303 F_fleet_1_YR_1990_s_2
+# 0.969045 F_fleet_1_YR_1991_s_1
+# 0.295935 F_fleet_1_YR_1991_s_2
+# 1.67898 F_fleet_1_YR_1992_s_1
+# 1.53556 F_fleet_1_YR_1992_s_2
+# 1.3658 F_fleet_1_YR_1993_s_1
+# 1.74122 F_fleet_1_YR_1993_s_2
+# 1.63708 F_fleet_1_YR_1994_s_1
+# 2.48628 F_fleet_1_YR_1994_s_2
+# 2.0415 F_fleet_1_YR_1995_s_1
+# 1.29537 F_fleet_1_YR_1995_s_2
+# 1.01668 F_fleet_1_YR_1996_s_1
+# 0.827556 F_fleet_1_YR_1996_s_2
+# 2.24985 F_fleet_1_YR_1997_s_1
+# 0.916423 F_fleet_1_YR_1997_s_2
+# 0.0936945 F_fleet_1_YR_1998_s_1
+# 0.021343 F_fleet_1_YR_1998_s_2
+# 0.345683 F_fleet_1_YR_1999_s_1
+# 0.363757 F_fleet_1_YR_1999_s_2
+# 0.655228 F_fleet_1_YR_2000_s_1
+# 1.72736 F_fleet_1_YR_2000_s_2
+# 2.10948 F_fleet_1_YR_2001_s_1
+# 0.948918 F_fleet_1_YR_2001_s_2
+# 1.04203 F_fleet_1_YR_2002_s_1
+# 2.87943 F_fleet_1_YR_2002_s_2
+# 0.769595 F_fleet_1_YR_2003_s_1
+# 0.169985 F_fleet_1_YR_2003_s_2
+# 1.39118 F_fleet_1_YR_2004_s_1
+# 1.44311 F_fleet_1_YR_2004_s_2
+# 0.167295 F_fleet_1_YR_2005_s_1
+# 0.734039 F_fleet_1_YR_2005_s_2
+# 0.383027 F_fleet_1_YR_2006_s_1
+# 0.557128 F_fleet_1_YR_2006_s_2
+# 1.20863 F_fleet_1_YR_2007_s_1
+# 1.67706 F_fleet_1_YR_2007_s_2
+# 3.22891 F_fleet_1_YR_2008_s_1
+# 3.22081 F_fleet_1_YR_2008_s_2
+# 0.855439 F_fleet_1_YR_2009_s_1
+# 1.22612 F_fleet_1_YR_2009_s_2
+# 1.52128 F_fleet_1_YR_2010_s_1
+# 0.604482 F_fleet_1_YR_2010_s_2
+# 1.10106 F_fleet_1_YR_2011_s_1
+# 0.719046 F_fleet_1_YR_2011_s_2
+# 0.478036 F_fleet_1_YR_2012_s_1
+# 1.71495 F_fleet_1_YR_2012_s_2
+# 0.39367 F_fleet_1_YR_2013_s_1
+# 1.25751 F_fleet_1_YR_2013_s_2
+# 1.08347 F_fleet_1_YR_2014_s_1
+# 2.09648 F_fleet_1_YR_2014_s_2
+# 0.669202 F_fleet_1_YR_2015_s_1
+# 0.756661 F_fleet_1_YR_2015_s_2
+# 0.16527 F_fleet_1_YR_2016_s_1
+# 0.120836 F_fleet_1_YR_2016_s_2
+# 0.317367 F_fleet_1_YR_2017_s_1
+# 0.164717 F_fleet_1_YR_2017_s_2
+# 0.00967975 F_fleet_2_YR_1984_s_1
+# 0.0111179 F_fleet_2_YR_1984_s_2
+# 0.0303176 F_fleet_2_YR_1985_s_1
+# 0.106146 F_fleet_2_YR_1985_s_2
+# 0.160959 F_fleet_2_YR_1986_s_1
+# 0.109493 F_fleet_2_YR_1986_s_2
+# 0.130605 F_fleet_2_YR_1987_s_1
+# 0.167035 F_fleet_2_YR_1987_s_2
+# 0.111514 F_fleet_2_YR_1988_s_1
+# 0.0872078 F_fleet_2_YR_1988_s_2
+# 0.27862 F_fleet_2_YR_1989_s_1
+# 0.144371 F_fleet_2_YR_1989_s_2
+# 0.361767 F_fleet_2_YR_1990_s_1
+# 0.0197585 F_fleet_2_YR_1990_s_2
+# 0.64199 F_fleet_2_YR_1991_s_1
+# 0.105185 F_fleet_2_YR_1991_s_2
+# 0.91202 F_fleet_2_YR_1992_s_1
+# 2.29634 F_fleet_2_YR_1992_s_2
+# 0.881003 F_fleet_2_YR_1993_s_1
+# 0.407218 F_fleet_2_YR_1993_s_2
+# 0.738458 F_fleet_2_YR_1994_s_1
+# 0.44803 F_fleet_2_YR_1994_s_2
+# 1.21808 F_fleet_2_YR_1995_s_1
+# 0.189506 F_fleet_2_YR_1995_s_2
+# 0.226394 F_fleet_2_YR_1996_s_1
+# 0.107929 F_fleet_2_YR_1996_s_2
+# 1.67412 F_fleet_2_YR_1997_s_1
+# 0.50358 F_fleet_2_YR_1997_s_2
+# 0.203131 F_fleet_2_YR_1998_s_1
+# 0.0106048 F_fleet_2_YR_1998_s_2
+# 0.244922 F_fleet_2_YR_1999_s_1
+# 0.149568 F_fleet_2_YR_1999_s_2
+# 0.535492 F_fleet_2_YR_2000_s_1
+# 0.0161922 F_fleet_2_YR_2000_s_2
+# 0.972245 F_fleet_2_YR_2001_s_1
+# 0.0322665 F_fleet_2_YR_2001_s_2
+# 0.909319 F_fleet_2_YR_2002_s_1
+# 1.4056 F_fleet_2_YR_2002_s_2
+# 0.223612 F_fleet_2_YR_2003_s_1
+# 0.0171749 F_fleet_2_YR_2003_s_2
+# 0.599187 F_fleet_2_YR_2004_s_1
+# 0.247009 F_fleet_2_YR_2004_s_2
+# 0.738099 F_fleet_2_YR_2005_s_1
+# 0.0463951 F_fleet_2_YR_2005_s_2
+# 0.563565 F_fleet_2_YR_2006_s_1
+# 0.272927 F_fleet_2_YR_2006_s_2
+# 1.2706 F_fleet_2_YR_2007_s_1
+# 0.612814 F_fleet_2_YR_2007_s_2
+# 2.24723 F_fleet_2_YR_2008_s_1
+# 1.66051 F_fleet_2_YR_2008_s_2
+# 0.587469 F_fleet_2_YR_2009_s_1
+# 1.10985 F_fleet_2_YR_2009_s_2
+# 0.817537 F_fleet_2_YR_2010_s_1
+# 0.040425 F_fleet_2_YR_2010_s_2
+# 0.40594 F_fleet_2_YR_2011_s_1
+# 0.510806 F_fleet_2_YR_2011_s_2
+# 0.374595 F_fleet_2_YR_2012_s_1
+# 0.131957 F_fleet_2_YR_2012_s_2
+# 0.0724628 F_fleet_2_YR_2013_s_1
+# 0.526814 F_fleet_2_YR_2013_s_2
+# 0.591465 F_fleet_2_YR_2014_s_1
+# 0.032432 F_fleet_2_YR_2014_s_2
+# 0.59905 F_fleet_2_YR_2015_s_1
+# 0.110316 F_fleet_2_YR_2015_s_2
+# 0.151284 F_fleet_2_YR_2016_s_1
+# 0.00355522 F_fleet_2_YR_2016_s_2
+# 0.123609 F_fleet_2_YR_2017_s_1
+# 0.00830887 F_fleet_2_YR_2017_s_2
+#
+#_Q_setup
+ # Q_type options:  <0=mirror, 0=float_nobiasadj, 1=float_biasadj, 2=parm_nobiasadj, 3=parm_w_random_dev, 4=parm_w_randwalk, 5=mean_unbiased_float_assign_to_parm
+#_for_env-var:_enter_index_of_the_env-var_to_be_linked
+#_Den-dep  env-var  extra_se  Q_type
+ 0 0 0 0 # 1 Fish_Chi
+ 0 0 0 0 # 2 Fish_Per
+ 0 0 0 2 # 3 SurAdu_Per
+ 0 0 0 2 # 4 SurJuv_Per
+ 0 0 0 2 # 5 SurJuv_Chi
+ 0 0 0 2 # 6 SurBio_Chi
+#
+#_Cond 0 #_If q has random component, then 0=read one parm for each fleet with random q; 1=read a parm for each year of index
+#_Q_parms(if_any);Qunits_are_ln(q)
+# LO HI INIT PRIOR PR_type SD PHASE
+ -15 1.5 -1.42284 0.0755 -1 99 2 # LnQ_base_3_SurAdu_Per
+ -15 1.5 -8.03342 0.0755 -1 99 2 # LnQ_base_4_SurJuv_Per
+ -15 1.5 -9.16969 0.0755 -1 99 2 # LnQ_base_5_SurJuv_Chi
+ -15 1.5 -0.795574 0.0755 -1 99 2 # LnQ_base_6_SurBio_Chi
+#
+#_size_selex_types
+#discard_options:_0=none;_1=define_retention;_2=retention&mortality;_3=all_discarded_dead
+#_Pattern Discard Male Special
+ 1 0 0 0 # 1 Fish_Chi
+ 1 0 0 0 # 2 Fish_Per
+ 0 0 0 0 # 3 SurAdu_Per
+ 33 0 0 0 # 4 SurJuv_Per
+ 33 0 0 0 # 5 SurJuv_Chi
+ 30 0 0 0 # 6 SurBio_Chi
+#
+#_age_selex_types
+#_Pattern ___ Male Special
+ 12 0 0 0 # 1 Fish_Chi
+ 12 0 0 0 # 2 Fish_Per
+ 10 0 0 0 # 3 SurAdu_Per
+ 10 0 0 0 # 4 SurJuv_Per
+ 10 0 0 0 # 5 SurJuv_Chi
+ 10 0 0 0 # 6 SurBio_Chi
+#_LO HI INIT PRIOR PR_type SD PHASE env-var use_dev dev_minyr dev_maxyr dev_stddev Block Block_Fxn
+ 5 20 12.4994 15 -1 99 2 0 0 0 0 0.5 1 2 # SizeSel_1P_1_Fish_Chi
+ 0.01 5 2.09596 1.2 -1 99 3 0 0 0 0 0.5 0 0 # SizeSel_1P_2_Fish_Chi
+ 5 20 11.4589 7 -1 99 2 0 0 0 0 0.5 2 2 # SizeSel_2P_1_Fish_Per
+ 0.01 5 1.38543 1.2 -1 99 3 0 0 0 0 0.5 0 0 # SizeSel_2P_2_Fish_Per
+ 0 1 0.285059 0.5 -1 99 2 0 0 0 0 0.5 0 0 # AgeSel_1P_1_Fish_Chi
+ 0.01 1 0.99964 1 -1 99 3 0 0 0 0 0.5 0 0 # AgeSel_1P_2_Fish_Chi
+ 0 1 0.104945 0.5 -1 99 2 0 0 0 0 0.5 0 0 # AgeSel_2P_1_Fish_Per
+ 0.01 1 0.217052 1 -1 99 3 0 0 0 0 0.5 0 0 # AgeSel_2P_2_Fish_Per
+#_Cond 0 #_custom_sel-env_setup (0/1) 
+#_Cond -2 2 0 0 -1 99 -2 #_placeholder when no enviro fxns
+1 #_custom_sel-blk_setup (0/1) 
+ 10 20 10.0015 15 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_1984
+ 10 20 10.9179 15 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_1987
+ 10 20 12.9366 15 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_1991
+ 10 20 11.2925 15 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_1998
+ 8 20 14.0506 12 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_2001
+ 8 20 13.1182 12 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_2009
+ 8 20 11.1324 12 -1 99 3 # SizeSel_1P_1_Fish_Chi_BLK1repl_2015
+ 10 20 10.9075 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_1984
+ 10 20 13.0121 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_1989
+ 10 20 11.5189 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_1994
+ 10 20 12.6061 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_1996
+ 10 20 10.2818 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_1998
+ 10 20 11.3305 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_2001
+ 10 20 11.3863 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_2008
+ 10 20 10.6826 15 -1 99 3 # SizeSel_2P_1_Fish_Per_BLK2repl_2014
+#_Cond No selex parm trends 
+#_Cond -4 # placeholder for selparm_Dev_Phase
+1 #_env/block/dev_adjust_method (1=standard; 2=logistic trans to keep in base parm bounds; 3=standard w/ no bound check)
+#
+# Tag loss and Tag reporting parameters go next
+0  # TG_custom:  0=no read; 1=read if tags exist
+#_Cond -6 6 1 1 2 0.01 -4 0 0 0 0 0 0 0  #_placeholder if no parameters
+#
+1 #_Variance_adjustments_to_input_values
+#_fleet: 1 2 3 4 5 6 
+  0 0 0 0 0 0 #_add_to_survey_CV
+  0 0 0 0 0 0 #_add_to_discard_stddev
+  0 0 0 0 0 0 #_add_to_bodywt_CV
+  1 1 1 1 1 1 #_mult_by_lencomp_N
+  1 1 1 1 1 1 #_mult_by_agecomp_N
+  1 1 1 1 1 1 #_mult_by_size-at-age_N
+#
+1 #_maxlambdaphase
+1 #_sd_offset
+#
+0 # number of changes to make to default Lambdas (default value is 1.0)
+# Like_comp codes:  1=surv; 2=disc; 3=mnwt; 4=length; 5=age; 6=SizeFreq; 7=sizeage; 8=catch; 9=init_equ_catch; 
+# 10=recrdev; 11=parm_prior; 12=parm_dev; 13=CrashPen; 14=Morphcomp; 15=Tag-comp; 16=Tag-negbin; 17=F_ballpark
+#like_comp fleet/survey  phase  value  sizefreq_method
+#
+# lambdas (for info only; columns are phases)
+#  0 #_CPUE/survey:_1
+#  0 #_CPUE/survey:_2
+#  1 #_CPUE/survey:_3
+#  1 #_CPUE/survey:_4
+#  1 #_CPUE/survey:_5
+#  1 #_CPUE/survey:_6
+#  1 #_lencomp:_1
+#  1 #_lencomp:_2
+#  0 #_lencomp:_3
+#  0 #_lencomp:_4
+#  0 #_lencomp:_5
+#  0 #_lencomp:_6
+#  1 #_init_equ_catch
+#  1 #_recruitments
+#  1 #_parameter-priors
+#  1 #_parameter-dev-vectors
+#  1 #_crashPenLambda
+#  0 # F_ballpark_lambda
+0 # (0/1) read specs for more stddev reporting 
+ # 0 1 -1 5 1 5 1 -1 5 # placeholder for selex type, len/age, year, N selex bins, Growth pattern, N growth ages, NatAge_area(-1 for all), NatAge_yr, N Natages
+ # placeholder for vector of selex bins to be reported
+ # placeholder for vector of growth ages to be reported
+ # placeholder for vector of NatAges ages to be reported
+999
+

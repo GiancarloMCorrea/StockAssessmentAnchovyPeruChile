@@ -367,6 +367,21 @@ donde $\beta_{1,y,f}$ es la talla donde la selectividad es 50\% para la pesquerí
 
 ### Modelo A
 
+```{r message = FALSE, warning = FALSE, echo = FALSE, results = 'hide'}
+tmp2 = SS_output(dir = "models/mod_A")
+```
+
+```{r echo=FALSE, results = "asis"}
+xa = tmp2$estimated_non_dev_parameters
+xa$Parametro = rownames(xa)
+xa1 = xa[,c("Parametro", "Value", "Phase", "Init", "Parm_StDev")]
+names(xa1) = c("Parametro", "Valor estimado", "Fase", "Valor inicial", "Desv est.")
+kable(x = xa1, caption = "Parámetros estimados por el Modelo A.", row.names = FALSE, digits = 3)
+```
+
+```{r fig.cap = "\\label{fig20}Biomasa total, biomasa desovante, desvíos de reclutamiento y mortalidad por pesca obtenidos por el modelo de evaluación A.", echo = FALSE, message = FALSE, results = 'hide', out.extra='', fig.pos = 'h'}
+getSummaryOne(pathmod = "models", modelName = "mod_A", BioFac = 1000)
+```
 
 ### Modelo B
 
@@ -388,8 +403,6 @@ getSummaryOne(pathmod = "models", modelName = "mod_B")
 
 
 ### Modelo C
-
-\pagebreak
 
 ```{r fig.cap = "Serie temporal de datos empleados por los modelos de evaluación.", echo = FALSE, message = FALSE, results = 'hide'}
 tmp3 = SS_output(dir = "models/mod_C")

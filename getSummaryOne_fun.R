@@ -3,7 +3,7 @@
 
 #LEE ARCHIVO .REP
 
-getSummaryOne = function(pathmod = "models", modelName = "mod_C",
+getSummaryOne = function(pathmod = "models", modelName = "mod_A",
                          LabAxLineX = 2.5, LabAxLineY = 2.5,
                          LabAxCex = 0.8, AxCex = 0.8, BioFac = 1000000){
 
@@ -144,12 +144,12 @@ box()
 
 
 
-plot(year,morf1.me,col=0,xlab="", ylab="", axes = FALSE, 
-     ylim = c(min(morf1.inf), max(morf1.sup)))
-points(year,morf1.me, col=2, pch = 19)
-segments(year, morf1.sup, year, morf1.inf, col=2)
+plot(year,morf1.me[1:length(year)],col=0,xlab="", ylab="", axes = FALSE, 
+     ylim = c(min(morf1.inf[1:length(year)]), max(morf1.sup[1:length(year)])))
+points(year,morf1.me[1:length(year)], col=2, pch = 19)
+segments(year, morf1.sup[1:length(year)], year, morf1.inf[1:length(year)], col=2)
 # lines(ano,morf2.me,col=4,lwd=2)
-axis(4, at=pretty(morf1.me), las=1, cex.axis = AxCex)
+axis(4, at=pretty(morf1.me[1:length(year)]), las=1, cex.axis = AxCex)
 axis(1, at=pretty(year), labels = pretty(year), cex.axis = AxCex)
 mtext("Años",side=1,line=LabAxLineX, cex=LabAxCex)
 mtext("Mortalidad por pesca", side=4, line=LabAxLineY, cex=LabAxCex)
